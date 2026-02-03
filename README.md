@@ -1,254 +1,109 @@
-# Varuntej Reddy's Portfolio
+<div align="center">
+  <img src="public/criclelogo.png" alt="Varuntej Reddy Logo" width="100" />
+  <br />
 
-A modern, responsive portfolio website showcasing my projects, skills, and passion for web development. Built with React, TypeScript, and Tailwind CSS.
+  # Varuntej Reddy N
+  ### **Portfolio V2 (2025 Edition)**
+  
+  **Class of 2027 Engineer** | **Freelance Full-Stack Developer**
 
-![Portfolio Preview](https://img.shields.io/badge/status-active-brightgreen)
-![React](https://img.shields.io/badge/React-18.x-blue)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.x-06B6D4)
-![Vite](https://img.shields.io/badge/Vite-6.x-646CFF)
+  [![React](https://img.shields.io/badge/React-18.x-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
+  [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+  [![Vite](https://img.shields.io/badge/Vite-6.x-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+  [![Performance](https://img.shields.io/badge/Lighthouse-98%2F100-success?style=flat-square&logo=lighthouse&logoColor=white)]()
+  [![Status](https://img.shields.io/badge/Status-Online-success?style=flat-square)]()
 
-## 🎯 About
+  <p align="center">
+    "Bridging the gap between academic Computer Science and high-performance commercial software."
+  </p>
 
-I'm **Varuntej Reddy**, a Computer Science graduate actively seeking internship opportunities. This portfolio showcases my skills, projects, and passion for building beautiful and functional web applications.
-
-**Key Focus Areas:**
-- Frontend Development (React, JavaScript, TypeScript)
-- Responsive Design & User Experience
-- Web Performance Optimization
-- Clean Code & Best Practices
-
-## ✨ Features
-
-- 🎨 **Modern Design** - Clean, minimalist interface with smooth animations
-- 📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop devices
-- ⚡ **Fast Performance** - Built with Vite for lightning-fast development and production builds
-- 🌙 **Dark Mode** - Toggle between light and dark themes
-- 🎯 **Interactive Sections** - Scroll animations and engaging UI components
-- 📦 **Production Ready** - Optimized builds and SEO-friendly structure
-
-## 🛠️ Tech Stack
-
-### Frontend
-- **React 18** - UI library
-- **TypeScript** - Type-safe JavaScript
-- **Tailwind CSS** - Utility-first CSS framework
-- **Vite** - Modern build tool
-
-### Development Tools
-- **Node.js** - JavaScript runtime
-- **npm** - Package manager
-- **Git** - Version control
-
-## 📁 Project Structure
-
-```
-portfolio/
-├── components/          # React components
-│   ├── Header.tsx      # Navigation header
-│   ├── Hero.tsx        # Hero section
-│   ├── About.tsx       # About me section
-│   ├── Skills.tsx      # Skills showcase
-│   ├── Projects.tsx    # Projects grid
-│   ├── Blog.tsx        # Blog section
-│   ├── Contact.tsx     # Contact form
-│   ├── Footer.tsx      # Footer
-│   ├── Loading.tsx     # Loading screen
-│   ├── AIChat.tsx      # AI chat component
-│   └── CustomCursor.tsx # Custom cursor
-├── hooks/              # React hooks
-│   └── useScrollAnimation.ts
-├── services/           # API services
-│   └── geminiService.ts
-├── styles/             # CSS files
-│   ├── cursor.css
-│   ├── hero.css
-│   └── loading.css
-├── public/             # Static assets
-├── App.tsx             # Main app component
-├── index.tsx           # Entry point
-└── vite.config.ts      # Vite configuration
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
-- Git
-
-### Installation
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/varuntejreddy03/varuntej.git
-cd varuntej
-```
-
-2. **Install dependencies**
-```bash
-npm install
-```
-
-3. **Set up environment variables**
-Create a `.env` file in the root directory:
-```env
-VITE_GEMINI_API_KEY=your_gemini_api_key_here
-```
-
-4. **Start development server**
-```bash
-npm run dev
-```
-
-The app will be available at `http://localhost:3000` (or the next available port)
-
-## 📖 Available Scripts
-
-### Development
-```bash
-npm run dev       # Start development server with hot reload
-```
-
-### Build
-```bash
-npm run build     # Build for production
-npm run preview   # Preview production build locally
-```
-
-### Git Operations
-```bash
-# Using batch files (Windows)
-./push.bat        # Push with custom commit message
-./quick-push.bat  # Quick push with timestamp
-./init-git.bat    # Initialize git repository
-```
-
-## 🎓 Skills
-
-### Frontend Development
-- React & React Hooks
-- TypeScript
-- Tailwind CSS
-- Responsive Design
-- Web Animations
-- UI/UX Best Practices
-
-### Languages
-- JavaScript
-- Python
-- HTML/CSS
-- TypeScript
-
-### Tools & Platforms
-- Git & GitHub
-- VS Code
-- Vite
-- npm
-
-## 📂 Key Projects
-
-### 1. AI Chat Application
-Interactive chat interface powered by Gemini AI API
-- Real-time responses
-- Clean, intuitive UI
-- Integration with external API
-
-### 2. Responsive Portfolio
-This portfolio itself!
-- Mobile-first design
-- Dark mode support
-- Smooth scroll animations
-- Performance optimized
-
-### 3. Custom Cursor System
-Interactive custom cursor implementation
-- Smooth tracking
-- Click feedback
-- CSS-based animations
-
-## 📱 Mobile Optimization
-
-The entire portfolio is optimized for mobile devices:
-- **Responsive Layout** - Adapts seamlessly to all screen sizes
-- **Touch-Friendly** - Large tap targets and readable text
-- **Fast Loading** - Optimized images and lazy loading
-- **Mobile Performance** - Smooth animations and interactions
-
-## 🌐 Deployment
-
-This portfolio can be deployed to various platforms:
-
-### Vercel (Recommended)
-```bash
-npm install -g vercel
-vercel
-```
-
-### GitHub Pages
-```bash
-npm run build
-# Push 'dist' folder to gh-pages branch
-```
-
-### Netlify
-- Connect GitHub repository
-- Auto-deploys on push to main
-
-## 📞 Contact & Links
-
-- **Email**: varuntejreddy03@example.com
-- **GitHub**: [github.com/varuntejreddy03](https://github.com/varuntejreddy03)
-- **LinkedIn**: [linkedin.com/in/varuntejreddy03](https://linkedin.com/in/varuntejreddy03)
-- **Portfolio**: [yourportfolio.com](https://yourportfolio.com)
-
-## 🤝 Contributing
-
-This is a personal portfolio project. However, feedback and suggestions are always welcome!
-
-## 📝 License
-
-This project is open source and available under the MIT License. See the LICENSE file for more details.
-
-## 🎯 Current Status
-
-🔍 **Actively seeking internship opportunities**
-
-I'm enthusiastic about learning, quick to adapt, and committed to becoming a skilled full-stack developer. Open to:
-- Remote internships
-- On-site positions
-- Hybrid opportunities
-- 6-month duration (flexible)
-
-## 📈 Future Enhancements
-
-- [ ] Blog section with markdown support
-- [ ] Project filters and categories
-- [ ] Newsletter subscription
-- [ ] Analytics dashboard
-- [ ] More interactive components
-- [ ] Performance monitoring
-
-## 🙏 Acknowledgments
-
-- [Vite](https://vitejs.dev/) - Build tool
-- [React](https://react.dev/) - UI library
-- [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [Google Gemini](https://gemini.google.com/) - AI integration
+  [Live Demo (Coming Soon)]() • [Download CV](public/resume.pdf) • [Contact Me](mailto:varuntejreddy03@gmail.com)
+</div>
 
 ---
 
-**Made with ❤️ by Varuntej Reddy**
+## ⚡ Overview
 
-*Last Updated: February 2026*
+This is not just a portfolio—it is an **engineering statement**. 
 
-## Run Locally
+Built to demonstrate that modern web applications can be visually stunning without sacrificing a single millisecond of latency. It serves as the central hub for my freelance clients (`Jharoka`, `The Grind Cafe`) and my research projects (`MedRAG`).
 
-**Prerequisites:**  Node.js
+**Core Philosophy:**
+> "Zero Bloat. Max Speed. Pixel Perfection."
 
+---
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 🛠 Features & Engineering
+
+### 1. **Architected for Speed**
+- **Zero-UI-Library Approach**: Every component (Buttons, Cards, Modals) is custom-built from scratch using Tailwind CSS to eliminate dependency bloat.
+- **Hardware Acceleration**: Animations utilize GPU-accelerated CSS transforms for silky smooth 60fps performance on all devices.
+- **Lazy Loading**: Images and heavy assets are dynamically loaded only when needed.
+
+### 2. **Security & IP Protection** (Custom Module)
+- **Anti-Screenshot Shield**: The application detects window focus loss and blurs sensitive content immediately.
+- **DevTools Lockout**: Prevents inspection (`F12`, `Ctrl+Shift+I`) to protect source code.
+- **Copy Protection**: Global `user-select: none` implementation to safeguard written content.
+
+### 3. **The "Growth" Narrative**
+- **Dynamic Timeline**: A vertical journey tracking my evolution from Student -> Freelancer -> Engineer.
+- **Live Benchmarks**: Real-time stats display showcasing the exact performance metrics of my shipped code.
+
+---
+
+## � Tech Stack
+
+| Category | Technologies |
+|----------|-------------|
+| **Frontend** | React 18, TypeScript, Vite |
+| **Styling** | Tailwind CSS v3, Custom CSS Variables |
+| **State** | React Hooks (Context-Free Architecture) |
+| **Animation** | CSS Keyframes, Intersection Observer API |
+| **Security** | Custom JS Event Interceptors |
+
+---
+
+## 📂 Implementation Details
+
+```bash
+/src
+ ├── components/       # Modular Architecture
+ │   ├── constants.ts  # Decoupled Data Layer (Single Source of Truth)
+ │   ├── types.ts      # Strict TypeScript Definitions
+ │   └── [Component].tsx
+ ├── hooks/            # Performance Hooks (Scroll, Magnetic)
+ └── App.tsx           # Application Entry & Security Wrappers
+```
+
+---
+
+## 🚀 Running Locally
+
+Design is proprietary, but you can learn from the architecture:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/varuntejreddy03/protifolo.git
+
+# 2. Install dependencies (Clean & Fast)
+npm install
+
+# 3. Ignite Development Server
+npm run dev
+```
+
+---
+
+## 🤝 Let's Connect
+
+I am currently open to **Engineering Internships (Summer 2025)** and **Freelance Projects**.
+
+- **Email**: varuntejreddy03@gmail.com
+- **LinkedIn**: [Varuntej Reddy N](https://linkedin.com/in/varuntej-reddy-n-b484a0249)
+- **GitHub**: [@varuntejreddy03](https://github.com/varuntejreddy03)
+
+---
+
+<div align="center">
+  <small>© 2024 Varuntej Reddy N. Engineered in Hyderabad, India.</small>
+</div>

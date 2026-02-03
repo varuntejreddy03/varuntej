@@ -1,81 +1,135 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Loading: React.FC = () => {
+  const [progress, setProgress] = useState(0);
+  const [currentLine, setCurrentLine] = useState(0);
+  const [nameIndex, setNameIndex] = useState(0);
+  const fullName = "VARUNTEJ REDDY";
+
+  // Faster Loading progress
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress(prev => (prev < 100 ? prev + 1 : 100));
+    }, 20);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Sequential line typing
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentLine(prev => (prev < 10 ? prev + 1 : prev));
+    }, 150);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Letter by letter name animation
+  useEffect(() => {
+    const nameTimer = setInterval(() => {
+      setNameIndex(prev => (prev < fullName.length ? prev + 1 : prev));
+    }, 60); // 60ms per letter for a smooth reveal
+    return () => clearInterval(nameTimer);
+  }, []);
+
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 flex items-center justify-center z-50 p-4 sm:p-0">
-      <div className="text-center relative w-full max-w-md pt-6 sm:pt-8">
-        {/* Floating particles - optimized for mobile */}
-        <div className="absolute inset-0 overflow-hidden hidden sm:block">
-          <div className="particle particle-1"></div>
-          <div className="particle particle-2"></div>
-          <div className="particle particle-3"></div>
-          <div className="particle particle-4"></div>
-        </div>
-        
-        {/* Logo with glow - responsive size */}
-        <div className="mb-6 sm:mb-8 relative inline-flex items-center justify-center p-2 sm:p-3">
-          <div className="absolute inset-0 bg-blue-500 rounded-full blur-lg sm:blur-xl opacity-30 animate-pulse"></div>
-          <img src="/criclelogo.png" alt="Logo" className="w-16 sm:w-24 h-16 sm:h-24 rounded-full bg-white object-contain mx-auto relative z-10 animate-float" />
-        </div>
-        
-        {/* Name with typewriter effect - responsive text */}
-        <h1 className="text-2xl sm:text-5xl font-bold text-white mb-1 sm:mb-2 animate-typewriter overflow-hidden whitespace-nowrap border-r-2 border-blue-400 mx-auto" style={{width: '100%', maxWidth: '16ch'}}>VARUNTEJ REDDY</h1>
-        <p className="text-blue-400 text-sm sm:text-xl mb-6 sm:mb-8 animate-fade-in-delay font-light">CS Student | Seeking Internship Opportunities</p>
-        
-        {/* Enhanced Code Animation - optimized for mobile */}
-        <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-8 text-left font-mono text-xs sm:text-sm max-w-lg mx-auto mb-6 sm:mb-8 border border-slate-700 shadow-2xl overflow-y-auto max-h-96 sm:max-h-full">
-          <div className="flex items-center mb-3 sm:mb-4">
-            <div className="flex gap-1.5 sm:gap-2">
-              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
-              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
-              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
-            </div>
-            <span className="text-slate-400 ml-2 sm:ml-4 text-[10px] sm:text-xs">portfolio.js</span>
+    <div className="fixed inset-0 bg-[#020617] flex items-center justify-center z-[9999] overflow-hidden">
+      {/* Background Ambience */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(37,99,235,0.05),transparent_70%)]" />
+      </div>
+
+      <div className="relative z-10 w-full max-w-2xl px-6">
+        {/* Top Header - Compact Logo */}
+        <div className="flex flex-col items-center mb-8 animate-loading-in">
+          <div className="relative mb-4">
+            <div className="absolute inset-0 bg-blue-500/20 blur-2xl animate-pulse rounded-full" />
+            <img src="/criclelogo.png" alt="Logo" className="w-14 h-14 rounded-full bg-white relative z-10 border-2 border-white/10 shadow-lg" />
+
+            {/* Rapid Orbital Particles */}
+            <div className="orbit-particle scale-75" style={{ animationDelay: '0s', animationDuration: '2s' }} />
+            <div className="orbit-particle scale-75" style={{ animationDelay: '-1s', animationDuration: '2s' }} />
           </div>
-          <div className="text-purple-400 mb-1 sm:mb-2 animate-type-1 line-clamp-1">const fresher = {'{'}</div>
-          <div className="text-blue-300 ml-4 sm:ml-6 animate-type-2 line-clamp-1">name: <span className="text-green-300">"Varuntej Reddy"</span>,</div>
-          <div className="text-blue-300 ml-4 sm:ml-6 animate-type-3 line-clamp-1">education: <span className="text-green-300">"Computer Science Graduate"</span>,</div>
-          <div className="text-blue-300 ml-4 sm:ml-6 animate-type-4 line-clamp-1">skills: [<span className="text-orange-300">"React", "JavaScript", "Python"</span>],</div>
-          <div className="text-blue-300 ml-4 sm:ml-6 animate-type-5 line-clamp-1">interest: [<span className="text-orange-300">"Web Dev", "AI/ML", "Cloud"</span>],</div>
-          <div className="text-blue-300 ml-4 sm:ml-6 animate-type-6 line-clamp-1">projects: <span className="text-yellow-300">"3+ Academic & Personal"</span>,</div>
-          <div className="text-blue-300 ml-4 sm:ml-6 animate-type-7 line-clamp-1">seeking: <span className="text-green-300">"Internship Opportunity"</span>,</div>
-          <div className="text-blue-300 ml-4 sm:ml-6 animate-type-8 line-clamp-1">location: <span className="text-green-300">"Open to Remote & On-site"</span>,</div>
-          <div className="text-blue-300 ml-4 sm:ml-6 animate-type-9 line-clamp-1">duration: <span className="text-yellow-300">"6 Months"</span>,</div>
-          <div className="text-blue-300 ml-4 sm:ml-6 animate-type-10 line-clamp-1">enthusiasm: <span className="text-green-300">true</span></div>
-          <div className="text-purple-400 animate-type-11">{'}'}</div>
-          <div className="text-slate-500 animate-type-12 mt-1 sm:mt-2 line-clamp-1">// Ready to learn and grow...</div>
-        </div>
-        
-        {/* Enhanced Loading Bar - responsive width */}
-        <div className="relative px-4 sm:px-0">
-          <div className="w-full sm:w-80 h-2 bg-slate-800 rounded-full mx-auto overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full animate-loading-bar-enhanced shadow-lg"></div>
-          </div>
-          <div className="flex justify-between text-[10px] sm:text-xs text-slate-400 mt-2 w-full mx-auto gap-1 sm:gap-0">
-            <span className="animate-pulse">Loading portfolio...</span>
-            <span className="animate-pulse delay-500 truncate hidden xs:inline">Initializing...</span>
-            <span className="animate-pulse delay-1000 truncate hidden sm:inline">Almost ready!</span>
-          </div>
+
+          {/* Letter by Letter Name */}
+          <h1 className="text-2xl sm:text-4xl font-black tracking-tighter text-white title-glow h-10 sm:h-12 flex items-center">
+            {fullName.substring(0, nameIndex)}
+            {nameIndex < fullName.length && <span className="w-1.5 h-6 sm:h-8 bg-blue-500 animate-pulse ml-1" />}
+          </h1>
+          <p className="text-[9px] font-bold uppercase tracking-[0.4em] text-slate-500 mt-1">Booting Environment...</p>
         </div>
 
-        {/* Additional Loading Stats - Mobile optimized */}
-        <div className="mt-6 sm:mt-8 space-y-2 text-[11px] sm:text-xs">
-          <div className="flex justify-between items-center text-slate-400">
-            <span>Resume Loading</span>
-            <div className="w-16 sm:w-24 h-1 bg-slate-800 rounded-full overflow-hidden">
-              <div className="h-full w-3/4 bg-green-500 rounded-full"></div>
+        {/* The JS File Loader */}
+        <div className="code-container rounded-[1.5rem] overflow-hidden border border-white/10 bg-[#0a0f1e]/90 backdrop-blur-3xl shadow-xl">
+          {/* Terminal Title Bar */}
+          <div className="bg-white/5 px-5 py-3 border-b border-white/5 flex items-center justify-between">
+            <div className="flex gap-1.5">
+              <div className="w-2 h-2 rounded-full bg-red-500/60" />
+              <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
+              <div className="w-2 h-2 rounded-full bg-green-500/60" />
             </div>
-          </div>
-          <div className="flex justify-between items-center text-slate-400">
-            <span>Projects Initializing</span>
-            <div className="w-16 sm:w-24 h-1 bg-slate-800 rounded-full overflow-hidden">
-              <div className="h-full w-2/3 bg-blue-500 rounded-full"></div>
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-blue-400 text-xs">javascript</span>
+              <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest font-bold">main.js</span>
             </div>
+            <div className="w-8 h-1 bg-white/5 rounded-full" />
           </div>
-          <div className="flex justify-between items-center text-slate-400">
-            <span>Skills Preparing</span>
-            <div className="w-16 sm:w-24 h-1 bg-slate-800 rounded-full overflow-hidden">
-              <div className="h-full w-1/2 bg-purple-500 rounded-full"></div>
+
+          {/* Code Body - Faster Pacing */}
+          <div className="p-6 sm:p-8 font-mono text-[10px] sm:text-xs leading-relaxed space-y-1 min-h-[250px]">
+            {currentLine >= 0 && (
+              <div className="flex gap-3">
+                <span className="text-slate-600 select-none w-3">1</span>
+                <div className="line-animate"><span className="syn-keyword">import</span> <span className="syn-var">experience</span> <span className="syn-keyword">from</span> <span className="syn-str">'./site'</span><span className="syn-punct">;</span></div>
+              </div>
+            )}
+            {currentLine >= 1 && (
+              <div className="flex gap-3">
+                <span className="text-slate-600 select-none w-3">2</span>
+                <div className="line-animate"><span className="syn-keyword">const</span> <span className="syn-var">config</span> <span className="syn-punct">=</span> <span className="syn-punct">{'{'}</span></div>
+              </div>
+            )}
+            {currentLine >= 2 && (
+              <div className="flex gap-3 pl-3">
+                <span className="text-slate-600 select-none w-3">3</span>
+                <div className="line-animate"><span className="syn-var">name</span><span className="syn-punct">:</span> <span className="syn-str">"Varuntej Reddy"</span><span className="syn-punct">,</span></div>
+              </div>
+            )}
+            {currentLine >= 3 && (
+              <div className="flex gap-3 pl-3">
+                <span className="text-slate-600 select-none w-3">4</span>
+                <div className="line-animate"><span className="syn-var">role</span><span className="syn-punct">:</span> <span className="syn-str">"Developer"</span><span className="syn-punct">,</span></div>
+              </div>
+            )}
+            {currentLine >= 4 && (
+              <div className="flex gap-3 pl-3">
+                <span className="text-slate-600 select-none w-3">5</span>
+                <div className="line-animate"><span className="syn-var">speed</span><span className="syn-punct">:</span> <span className="syn-str">"Optimized"</span><span className="syn-punct">,</span></div>
+              </div>
+            )}
+            {currentLine >= 5 && (
+              <div className="flex gap-3">
+                <span className="text-slate-600 select-none w-3">6</span>
+                <div className="line-animate"><span className="syn-punct">{'}'}</span><span className="syn-punct">;</span></div>
+              </div>
+            )}
+            {currentLine >= 6 && (
+              <div className="flex gap-3">
+                <span className="text-slate-600 select-none w-3">7</span>
+                <div className="line-animate"><span className="syn-func">init</span><span className="syn-punct">(</span><span className="syn-var">config</span><span className="syn-punct">)</span><span className="syn-punct">;</span><span className="typing-cursor" /></div>
+              </div>
+            )}
+          </div>
+
+          {/* Progress Bar Footer */}
+          <div className="bg-white/5 p-5 sm:p-6 text-center">
+            <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden mb-3">
+              <div
+                className="h-full bg-gradient-to-r from-blue-600 to-blue-400 shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-200 ease-out"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+            <div className="flex justify-center items-center gap-3">
+              <span className="text-[10px] font-bold text-white tracking-widest">{progress}%</span>
+              <span className="text-[9px] text-slate-500 uppercase tracking-widest animate-pulse">Launching...</span>
             </div>
           </div>
         </div>

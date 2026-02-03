@@ -1,9 +1,0 @@
-
-{
-  "name": "VN Portfolio - Varuntej Reddy N",
-  "description": "A high-performance personal portfolio featuring AI-powered experiences, RAG architecture projects, and modern full-stack development skills.",
-  "requestFramePermissions": [
-    "camera",
-    "microphone"
-  ]
-}

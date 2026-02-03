@@ -1,0 +1,45 @@
+/* Infinite Auto-Scrolling Projects */
+.projects-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.projects-marquee-content {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: project-scroll 60s linear infinite;
+  will-change: transform;
+}
+
+.projects-marquee-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes project-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.project-card-premium {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+}
+
+.projects-marquee-content:hover .project-card-premium:not(:hover) {
+  opacity: 0.4;
+  filter: blur(2px) grayscale(0.5);
+  scale: 0.95;
+}
+
+.project-card-premium:hover {
+  scale: 1.02;
+  z-index: 10;
+}
