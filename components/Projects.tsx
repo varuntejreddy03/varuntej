@@ -52,8 +52,22 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               </div>
               
               <div className="flex gap-3 pt-4">
-                <a href={project.liveUrl} className="flex-1 bg-slate-900 dark:bg-white text-white dark:text-slate-900 py-3 rounded-lg font-bold text-xs text-center hover:opacity-90 transition-opacity">Live</a>
-                <a href={project.repoUrl} className="flex-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-white py-3 rounded-lg font-bold text-xs text-center hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">Code</a>
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 bg-slate-900 dark:bg-white text-white dark:text-slate-900 py-3 rounded-lg font-bold text-xs text-center hover:opacity-90 transition-opacity"
+                >
+                  Live
+                </a>
+                <a
+                  href={project.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-white py-3 rounded-lg font-bold text-xs text-center hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
+                >
+                  Code
+                </a>
               </div>
             </div>
           </div>

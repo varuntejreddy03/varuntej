@@ -8,9 +8,9 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
   return (
     <header className="sticky top-0 z-50 w-full px-4 py-4">
-      <nav className="mx-auto max-w-5xl glass-card rounded-full px-6 py-3 flex items-center justify-between shadow-lg shadow-black/5 dark:shadow-none bg-white/70 dark:bg-slate-900/40">
+      <nav className="mx-auto max-w-5xl glass-card rounded-full px-6 py-4 flex items-center justify-between shadow-lg shadow-black/5 dark:shadow-none bg-white/70 dark:bg-slate-900/40">
         <div className="flex items-center gap-1 sm:gap-2">
-          <img src="/criclelogo.png" alt="Logo" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white" />
+          <img src="/criclelogo.png" alt="Logo" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white object-contain shrink-0" />
           <span className="text-lg sm:text-2xl font-bold tracking-tighter text-primary">VARUNTEJ REDDY</span>
         </div>
         <div className="flex items-center gap-2 sm:gap-6">

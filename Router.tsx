@@ -18,7 +18,7 @@ const Router: React.FC = () => {
   
   // Always redirect to home on reload
   React.useEffect(() => {
-    if (path !== '/' && path !== '/resume') {
+    if (path !== '/' && path !== '/resume' && path !== '/resume/') {
       window.location.href = '/';
     }
   }, [path]);
@@ -27,7 +27,7 @@ const Router: React.FC = () => {
     return <Loading />;
   }
   
-  if (path === '/resume') {
+  if (path === '/resume' || path === '/resume/') {
     return <ResumeContent />;
   }
   

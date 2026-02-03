@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
 
         {/* Description */}
         <p className={`text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          CS Graduate actively seeking internship opportunities. Skilled in React, JavaScript, Python, and Web Development with a passion for clean code and user-centric design. Open to remote and on-site opportunities.
+          CS Student actively seeking internship opportunities. Skilled in React, JavaScript, Python, and Web Development with a passion for clean code and user-centric design. Open to remote and on-site opportunities.
         </p>
 
         {/* CTA Buttons */}
@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
           <a href="#contact" className="px-6 sm:px-10 py-3 sm:py-4 glass-card dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white rounded-xl sm:rounded-2xl font-bold hover:bg-slate-100 dark:hover:bg-white/10 transition-all text-center flex-1 sm:flex-none text-sm sm:text-base">
             Contact Me
           </a>
-          <a href="/resume" className="px-6 sm:px-10 py-3 sm:py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl sm:rounded-2xl font-bold hover:opacity-90 hover:scale-105 transition-all text-center flex-1 sm:flex-none text-sm sm:text-base">
+          <a href="/resume/" className="px-6 sm:px-10 py-3 sm:py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl sm:rounded-2xl font-bold hover:opacity-90 hover:scale-105 transition-all text-center flex-1 sm:flex-none text-sm sm:text-base">
             My Resume
           </a>
         </div>

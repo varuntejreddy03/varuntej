@@ -24,6 +24,17 @@ body {
   transition: transform 0.2s ease;
 }
 
+@media (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+
+  .cursor,
+  .cursor-follower {
+    display: none !important;
+  }
+}
+
 @media (max-width: 640px) {
   .cursor {
     width: 30px;

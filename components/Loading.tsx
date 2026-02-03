@@ -3,7 +3,7 @@ import React from 'react';
 const Loading: React.FC = () => {
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 flex items-center justify-center z-50 p-4 sm:p-0">
-      <div className="text-center relative w-full max-w-md">
+      <div className="text-center relative w-full max-w-md pt-6 sm:pt-8">
         {/* Floating particles - optimized for mobile */}
         <div className="absolute inset-0 overflow-hidden hidden sm:block">
           <div className="particle particle-1"></div>
@@ -13,14 +13,14 @@ const Loading: React.FC = () => {
         </div>
         
         {/* Logo with glow - responsive size */}
-        <div className="mb-6 sm:mb-8 relative">
+        <div className="mb-6 sm:mb-8 relative inline-flex items-center justify-center p-2 sm:p-3">
           <div className="absolute inset-0 bg-blue-500 rounded-full blur-lg sm:blur-xl opacity-30 animate-pulse"></div>
-          <img src="/criclelogo.png" alt="Logo" className="w-16 sm:w-24 h-16 sm:h-24 rounded-full bg-white mx-auto relative z-10 animate-float" />
+          <img src="/criclelogo.png" alt="Logo" className="w-16 sm:w-24 h-16 sm:h-24 rounded-full bg-white object-contain mx-auto relative z-10 animate-float" />
         </div>
         
         {/* Name with typewriter effect - responsive text */}
         <h1 className="text-2xl sm:text-5xl font-bold text-white mb-1 sm:mb-2 animate-typewriter overflow-hidden whitespace-nowrap border-r-2 border-blue-400 mx-auto" style={{width: '100%', maxWidth: '16ch'}}>VARUNTEJ REDDY</h1>
-        <p className="text-blue-400 text-sm sm:text-xl mb-6 sm:mb-8 animate-fade-in-delay font-light">CS Graduate | Seeking Internship Opportunities</p>
+        <p className="text-blue-400 text-sm sm:text-xl mb-6 sm:mb-8 animate-fade-in-delay font-light">CS Student | Seeking Internship Opportunities</p>
         
         {/* Enhanced Code Animation - optimized for mobile */}
         <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-8 text-left font-mono text-xs sm:text-sm max-w-lg mx-auto mb-6 sm:mb-8 border border-slate-700 shadow-2xl overflow-y-auto max-h-96 sm:max-h-full">

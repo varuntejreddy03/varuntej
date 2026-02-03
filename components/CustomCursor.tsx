@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
 const CustomCursor: React.FC = () => {
+  const isTouchDevice = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [followerPosition, setFollowerPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
 
   useEffect(() => {
+    if (isTouchDevice) {
+      return;
+    }
     const updatePosition = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
@@ -46,6 +50,10 @@ const CustomCursor: React.FC = () => {
       });
     };
   }, [position]);
+
+  if (isTouchDevice) {
+    return null;
+  }
 
   return (
     <>
