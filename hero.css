@@ -1,0 +1,47 @@
+/* Hero Text Animations */
+@keyframes typewriter-hero {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+  0% { width: 0; }
+  100% { width: 20ch; }
+}
+
+@keyframes typewriter-hero2 {
+  0% { width: 0; }
+  100% { width: 35ch; }
+}
+
+@keyframes fade-in-word {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce-in {
+  0% { opacity: 0; transform: translateY(30px) scale(0.9); }
+  50% { transform: translateY(-5px) scale(1.05); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-typewriter-hero {
+  animation: typewriter-hero 1.5s steps(20) forwards;
+  width: 0;
+}
+
+.animate-typewriter-hero2 {
+  animation: typewriter-hero2 2s steps(35) forwards;
+  width: 0;
+}
+
+.animate-fade-in-word {
+  animation: fade-in-word 1s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.8s ease-out forwards;
+  opacity: 0;
+}

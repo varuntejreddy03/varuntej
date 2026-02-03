@@ -1,0 +1,289 @@
+{
+  "personal": {
+    "name": "Varuntej Reddy N",
+    "title": "Frontend / Full-Stack Developer",
+    "subtitle": "AI-Enabled Web Applications",
+    "location": "Hyderabad, India",
+    "phone": "+91-8374967870",
+    "email": "varuntejreddy03@gmail.com",
+    "links": {
+      "linkedin": "https://linkedin.com/in/nvaruntej",
+      "github": "https://github.com/varuntejreddy03"
+    },
+    "avatar": "/images/profile.jpg",
+    "bio": "Frontend and full-stack developer with freelance experience building production React and Next.js applications for real businesses. Comfortable owning end-to-end delivery from UI and performance optimization to deployment and analytics."
+  },
+  
+  "experience": [
+    {
+      "id": "exp-1",
+      "role": "Web Developer & Digital Marketing Analyst",
+      "company": "Freelance / Contract",
+      "location": "Hyderabad, India",
+      "period": "2025 – Present",
+      "current": true,
+      "clients": [
+        {
+          "name": "The Grind Cafe",
+          "url": "https://thegrindcafe.in"
+        },
+        {
+          "name": "Jharoka.in",
+          "url": "https://jharoka.in"
+        },
+        {
+          "name": "PartCart",
+          "url": "https://partycart.vercel.app"
+        }
+      ],
+      "highlights": [
+        "Designed and developed responsive landing pages using React, TypeScript, and Tailwind CSS",
+        "Improved page load performance and SEO, achieving Lighthouse performance scores above 90 on mobile for client websites",
+        "Planned and optimized Google Ads and Meta Ads campaigns, iterating on UI and content using GA4",
+        "Worked directly with business owners to independently deliver development and deployment"
+      ],
+      "skills": ["React", "TypeScript", "Tailwind CSS", "SEO", "Google Ads", "Meta Ads", "GA4"]
+    }
+  ],
+  
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "MedRAG — AI Healthcare Diagnosis Copilot",
+      "tagline": "RAG-based medical QA platform with sub-second query latency",
+      "year": "2025",
+      "status": "live",
+      "featured": true,
+      "category": "ai",
+      "description": "An AI-powered healthcare diagnosis assistant built using Retrieval-Augmented Generation (RAG) architecture. Features a 4.4GB FAISS vector index for fast medical knowledge retrieval with JWT authentication and rate limiting.",
+      "tech": ["Next.js", "FastAPI", "Gemini API", "FAISS", "AWS", "Docker", "JWT", "PostgreSQL"],
+      "highlights": [
+        "Built a RAG-based medical QA web application using a 4.4GB FAISS vector index with sub-second query latency",
+        "Implemented JWT authentication, rate limiting, and session management in a FastAPI backend",
+        "Deployed the application using Docker on AWS (EC2, S3, RDS)"
+      ],
+      "links": {
+        "live": "https://medrag.site",
+        "github": "https://github.com/varuntejreddy03/medrag_backend"
+      },
+      "images": [
+        "/images/projects/medrag-hero.jpg",
+        "/images/projects/medrag-dashboard.jpg",
+        "/images/projects/medrag-query.jpg"
+      ]
+    },
+    {
+      "id": "proj-2",
+      "title": "Jharoka Heritage Furniture",
+      "tagline": "E-commerce showcase for heritage furniture",
+      "year": "2024",
+      "status": "live",
+      "featured": true,
+      "category": "client-work",
+      "description": "A beautiful single-page furniture showcase website with animated sections, image galleries, and mobile-first design for a heritage furniture business.",
+      "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      "highlights": [
+        "Built a single-page furniture showcase with animated sections, image galleries, and mobile-first design",
+        "Integrated contact forms, Google Maps, and customer testimonials",
+        "Optimized for SEO and performance"
+      ],
+      "links": {
+        "live": "https://jharoka.in",
+        "github": "https://github.com/varuntejreddy03/Jharoka"
+      },
+      "images": [
+        "/images/projects/jharoka-hero.jpg",
+        "/images/projects/jharoka-gallery.jpg"
+      ]
+    },
+    {
+      "id": "proj-3",
+      "title": "KMCE Cricket Portal",
+      "tagline": "Tournament management platform for college cricket",
+      "year": "2024",
+      "status": "live",
+      "featured": true,
+      "category": "web-app",
+      "description": "A comprehensive tournament management platform with team dashboards, admin workflows, and role-based access control built for college cricket tournaments.",
+      "tech": ["Next.js", "Supabase", "Tailwind CSS", "PostgreSQL"],
+      "highlights": [
+        "Developed a tournament platform with team dashboards, admin workflows, and role-based access",
+        "Implemented Supabase authentication and SQL-backed storage",
+        "Real-time score updates and match scheduling"
+      ],
+      "links": {
+        "live": "https://kmcecricket.netlify.app",
+        "github": "https://github.com/varuntejreddy03/kmcesports"
+      },
+      "images": [
+        "/images/projects/kmce-dashboard.jpg",
+        "/images/projects/kmce-tournament.jpg"
+      ]
+    },
+    {
+      "id": "proj-4",
+      "title": "The Grind Cafe",
+      "tagline": "Business website for multi-location cafe",
+      "year": "2025",
+      "status": "live",
+      "featured": true,
+      "category": "client-work",
+      "description": "SEO-optimized business website for a multi-location cafe with location pages, menu showcase, and contact integration.",
+      "tech": ["React", "TypeScript", "Tailwind CSS", "SEO"],
+      "highlights": [
+        "Developed and deployed an SEO-optimized website for a multi-location cafe business",
+        "Achieved Lighthouse score above 90 on mobile",
+        "Integrated Google Maps and contact forms"
+      ],
+      "links": {
+        "live": "https://thegrindcafe.in",
+        "github": "https://github.com/varuntejreddy03/grindcafe"
+      },
+      "images": [
+        "/images/projects/grind-hero.jpg",
+        "/images/projects/grind-menu.jpg"
+      ]
+    },
+    {
+      "id": "proj-5",
+      "title": "PartCart",
+      "tagline": "Food ordering and catering platform",
+      "year": "2025",
+      "status": "wip",
+      "featured": false,
+      "category": "web-app",
+      "description": "A responsive food-ordering and catering inquiry platform currently in development, featuring cart management and order processing.",
+      "tech": ["Next.js", "TypeScript", "Tailwind CSS", "React Context"],
+      "highlights": [
+        "Building a responsive food-ordering and catering inquiry platform",
+        "Implementing cart management and checkout flow",
+        "Mobile-first design with smooth animations"
+      ],
+      "links": {
+        "live": "https://partycart.vercel.app",
+        "github": "https://github.com/varuntejreddy03/partycart"
+      },
+      "images": [
+        "/images/projects/partcart-preview.jpg"
+      ]
+    }
+  ],
+  
+  "skills": {
+    "languages": [
+      { "name": "JavaScript", "level": 90, "icon": "javascript" },
+      { "name": "TypeScript", "level": 85, "icon": "typescript" },
+      { "name": "Python", "level": 80, "icon": "python" },
+      { "name": "Java", "level": 70, "icon": "java" },
+      { "name": "SQL", "level": 75, "icon": "database" }
+    ],
+    "frontend": [
+      { "name": "React", "level": 90, "icon": "react" },
+      { "name": "Next.js", "level": 88, "icon": "nextjs" },
+      { "name": "Tailwind CSS", "level": 92, "icon": "tailwind" },
+      { "name": "HTML/CSS", "level": 95, "icon": "html5" },
+      { "name": "Vite", "level": 80, "icon": "vite" }
+    ],
+    "backend": [
+      { "name": "FastAPI", "level": 82, "icon": "fastapi" },
+      { "name": "Node.js", "level": 78, "icon": "nodejs" },
+      { "name": "REST APIs", "level": 85, "icon": "api" },
+      { "name": "JWT Authentication", "level": 80, "icon": "shield" }
+    ],
+    "ai": [
+      { "name": "RAG Pipelines", "level": 85, "icon": "brain" },
+      { "name": "FAISS", "level": 82, "icon": "search" },
+      { "name": "Gemini API", "level": 80, "icon": "google" },
+      { "name": "Vector Search", "level": 83, "icon": "vector" }
+    ],
+    "cloud": [
+      { "name": "AWS EC2", "level": 78, "icon": "aws" },
+      { "name": "AWS S3", "level": 80, "icon": "aws" },
+      { "name": "AWS RDS", "level": 75, "icon": "aws" },
+      { "name": "Docker", "level": 82, "icon": "docker" },
+      { "name": "Cloudflare Pages", "level": 85, "icon": "cloudflare" },
+      { "name": "Git", "level": 90, "icon": "git" }
+    ],
+    "marketing": [
+      { "name": "Google Analytics 4", "level": 80, "icon": "analytics" },
+      { "name": "Google Ads", "level": 78, "icon": "google" },
+      { "name": "Meta Ads", "level": 75, "icon": "meta" },
+      { "name": "SEO", "level": 82, "icon": "search" }
+    ]
+  },
+  
+  "education": [
+    {
+      "id": "edu-1",
+      "degree": "B.Tech in Computer Science Engineering",
+      "institution": "Keshav Memorial College of Engineering",
+      "location": "Hyderabad, India",
+      "period": "2023 – 2027",
+      "expected": "2027",
+      "current": true,
+      "highlights": [
+        "Focus on Web Development and AI/ML",
+        "Active in college technical clubs and events"
+      ]
+    }
+  ],
+  
+  "achievements": [
+    {
+      "id": "ach-1",
+      "title": "Lighthouse Performance Score 90+",
+      "description": "Consistently achieved 90+ Lighthouse scores on mobile for all client projects",
+      "year": "2024-2025"
+    },
+    {
+      "id": "ach-2",
+      "title": "Sub-second Query Latency",
+      "description": "Built RAG system with 4.4GB vector index achieving sub-second response times",
+      "year": "2025"
+    },
+    {
+      "id": "ach-3",
+      "title": "Real Business Impact",
+      "description": "Delivered production applications serving real customers and generating revenue",
+      "year": "2024-2025"
+    }
+  ],
+  
+  "testimonials": [
+    {
+      "id": "test-1",
+      "name": "Client Name",
+      "role": "Owner, The Grind Cafe",
+      "content": "Varuntej delivered a beautiful, fast website that perfectly represents our brand. The SEO improvements brought in more customers.",
+      "rating": 5,
+      "image": "/images/testimonials/client-1.jpg"
+    }
+  ],
+  
+  "contact": {
+    "title": "Let's Build Something Together",
+    "description": "I'm currently available for freelance projects and full-time opportunities. Whether you need a performant web application, AI integration, or digital marketing optimization, let's talk.",
+    "cta": "Get In Touch",
+    "formFields": [
+      { "name": "name", "type": "text", "label": "Your Name", "required": true },
+      { "name": "email", "type": "email", "label": "Email Address", "required": true },
+      { "name": "subject", "type": "text", "label": "Subject", "required": true },
+      { "name": "message", "type": "textarea", "label": "Message", "required": true, "rows": 5 }
+    ]
+  },
+  
+  "seo": {
+    "title": "Varuntej Reddy N | Frontend & Full-Stack Developer",
+    "description": "Frontend and full-stack developer specializing in React, Next.js, and AI-enabled web applications. Based in Hyderabad, building production apps for real businesses.",
+    "keywords": ["frontend developer", "full-stack developer", "React developer", "Next.js developer", "AI web applications", "Hyderabad developer", "freelance web developer"],
+    "ogImage": "/images/og-image.jpg",
+    "twitterHandle": "@varuntejreddy"
+  },
+  
+  "theme": {
+    "primaryColor": "#3B82F6",
+    "secondaryColor": "#8B5CF6",
+    "accentColor": "#10B981",
+    "darkMode": true
+  }
+}
