@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
           <a href="#contact" className="px-6 sm:px-10 py-3 sm:py-4 glass-card dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white rounded-xl sm:rounded-2xl font-bold hover:bg-slate-100 dark:hover:bg-white/10 transition-all text-center flex-1 sm:flex-none text-sm sm:text-base">
             Contact Me
           </a>
-          <a href="/resume/" className="px-6 sm:px-10 py-3 sm:py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl sm:rounded-2xl font-bold hover:opacity-90 hover:scale-105 transition-all text-center flex-1 sm:flex-none text-sm sm:text-base">
+          <a href="/resume" className="px-6 sm:px-10 py-3 sm:py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl sm:rounded-2xl font-bold hover:opacity-90 hover:scale-105 transition-all text-center flex-1 sm:flex-none text-sm sm:text-base">
             My Resume
           </a>
         </div>
