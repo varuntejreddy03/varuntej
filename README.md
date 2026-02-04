@@ -99,7 +99,7 @@ npm run dev
 I am currently open to **Engineering Internships (Summer 2025)** and **Freelance Projects**.
 
 - **Email**: varuntejreddy03@gmail.com
-- **LinkedIn**: [Varuntej Reddy N](https://linkedin.com/in/varuntej-reddy-n-b484a0249)
+- **LinkedIn**: [Varuntej Reddy N](https://linkedin.com/in/nvaruntej)
 - **GitHub**: [@varuntejreddy03](https://github.com/varuntejreddy03)
 
 ---

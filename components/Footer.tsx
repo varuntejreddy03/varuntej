@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
             <div className="flex gap-4">
               {[
                 { name: 'GitHub', icon: 'code', url: 'https://github.com/varuntejreddy03' },
-                { name: 'LinkedIn', icon: 'person', url: 'https://linkedin.com/in/varuntej-reddy-n-b484a0249' },
+                { name: 'LinkedIn', icon: 'person', url: 'https://linkedin.com/in/nvaruntej' },
                 { name: 'Twitter', icon: 'share', url: '#' }
               ].map((social) => (
                 <a

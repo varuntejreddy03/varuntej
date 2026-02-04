@@ -27,7 +27,7 @@ const Contact: React.FC = () => {
 
   const socialLinks = [
     { name: 'GitHub', icon: 'terminal', url: 'https://github.com/varuntejreddy03' },
-    { name: 'LinkedIn', icon: 'box', url: 'https://linkedin.com/in/varuntej-reddy-n-b484a0249' },
+    { name: 'LinkedIn', icon: 'box', url: 'https://linkedin.com/in/nvaruntej' },
     { name: 'Email', icon: 'mail', url: 'mailto:varuntejreddy03@gmail.com' }
   ];
 
