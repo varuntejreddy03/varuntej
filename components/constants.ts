@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
       'SQL-backed match scheduling engine'
     ],
     tags: ['Next.js', 'Supabase', 'PostgreSQL'],
-    liveUrl: 'https://kmcecricket.netlify.app',
+    liveUrl: 'https://kmcecricket.varuntej.online/',
     repoUrl: 'https://github.com/varuntejreddy03/kmcesports',
     category: 'web-app'
   },
