@@ -17,7 +17,7 @@
     "Bridging the gap between academic Computer Science and high-performance commercial software."
   </p>
 
-  [Live Demo (Coming Soon)]() • [Download CV](public/resume.pdf) • [Contact Me](mailto:varuntejreddy03@gmail.com)
+  [Live Demo (https://varuntej.online/)]() • [Download CV](public/resume.pdf) • [Contact Me](mailto:varuntejreddy03@gmail.com)
 </div>
 
 ---
