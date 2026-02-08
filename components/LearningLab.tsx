@@ -91,7 +91,7 @@ const LearningLab: React.FC = () => {
           </div>
           <div className="h-8 w-px bg-slate-200 dark:bg-white/10 hidden md:block" />
           <div className="flex flex-col items-center gap-1">
-            <span className="text-2xl font-black text-slate-900 dark:text-white">50+ Projects</span>
+            <span className="text-2xl font-black text-slate-900 dark:text-white">5+ Projects</span>
             <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest text-center">Total Delivered</span>
           </div>
           <div className="h-8 w-px bg-slate-200 dark:bg-white/10 hidden md:block" />
