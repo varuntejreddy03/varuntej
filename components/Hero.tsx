@@ -66,10 +66,10 @@ const Hero: React.FC = () => {
           {/* Status Badge */}
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-primary/5 border border-primary/10 backdrop-blur-md text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.4em] text-primary mb-8 lg:mb-12 animate-fade-in-up">
             <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-60"></span>
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-60"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
             </span>
-            Full Stack Developer | AI Systems | Intern @ StaffArc
+            Open to Full-Time Graduate Roles 2027 | Intern @ StaffArc
           </div>
 
           {/* Typewriter Optimized Headline */}
@@ -123,7 +123,7 @@ const Hero: React.FC = () => {
 
           {/* Description */}
           <p className="text-base sm:text-xl text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-xl mb-12 animate-fade-in-up" style={{ animationDelay: '900ms' }}>
-            Full Stack Intern at <span className="text-primary font-bold">StaffArc</span>, building production-ready frontends for real-world clients. Expert in React, Next.js, and FastAPI with a focus on high-performance AI integration.
+            Full Stack Intern at <span className="text-primary font-bold">StaffArc</span>. Delivering production-grade UIs and scalable <span className="text-slate-900 dark:text-white font-bold border-b border-primary/30">AI-integrated backends</span>. Focused on bridging complex system engineering with fluid, high-conversion user experiences.
           </p>
         </div>
 

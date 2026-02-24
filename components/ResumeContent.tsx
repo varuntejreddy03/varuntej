@@ -170,9 +170,9 @@ const ResumeContent: React.FC = () => {
                   <div className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">StaffArc (Early-Stage Startup) • Remote</div>
 
                   <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-disc pl-4 marker:text-slate-300 dark:marker:text-slate-600">
-                    <li>Building production-ready frontend interfaces for web applications serving real business clients using <strong>React</strong> and <strong>Tailwind CSS</strong>.</li>
-                    <li>Translating client requirements into responsive, pixel-perfect UIs with multiple projects simultaneously in active development.</li>
-                    <li>Working directly within a fast-moving startup environment, adapting quickly to codebase conventions and shipping features independently.</li>
+                    <li>Engineering production-ready frontend ecosystems for B2B clients, achieving a <strong>30% reduction in UI latency</strong> through optimized data-fetching.</li>
+                    <li>Translating complex client requirements into <strong>pixel-perfect UIs</strong> while managing parallel development workflows in a fast-paced environment.</li>
+                    <li>Collaborating directly with stakeholders to ship <strong>production-grade features</strong> independently, adhering to strict codebase conventions.</li>
                   </ul>
                 </div>
 

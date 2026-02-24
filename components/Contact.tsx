@@ -52,8 +52,8 @@ const Contact: React.FC = () => {
             <span className="text-primary italic">something amazing.</span>
           </h2>
 
-          <p className="text-lg text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-md mb-12">
-            Whether you're looking for a <span className="text-slate-900 dark:text-white font-bold">Full Stack Developer</span> or an <span className="text-slate-900 dark:text-white font-bold">AI Engineer</span> for your next project, let's connect.
+          <p className="text-lg text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-md mb-12">
+            Currently open to <span className="text-slate-900 dark:text-white font-bold">Full-Time Engineering Roles (2027)</span> and high-impact freelance collaborations. Let's discuss how I can contribute to your team.
           </p>
 
           {/* Social Hub */}
@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
 
             <form className="p-10 lg:p-14 space-y-8" onSubmit={handleSubmit}>
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Identity</label>
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Professional Identity</label>
                 <input
                   className="w-full bg-slate-100 dark:bg-white/5 border border-transparent focus:border-primary rounded-2xl px-6 py-5 text-sm font-bold text-slate-900 dark:text-white outline-none transition-all glow-input"
                   placeholder="Full Name / Company"
@@ -126,7 +126,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Payload</label>
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Inquiry Context</label>
                 <textarea
                   className="w-full bg-slate-100 dark:bg-white/5 border border-transparent focus:border-primary rounded-2xl px-6 py-5 text-sm font-bold text-slate-900 dark:text-white outline-none transition-all resize-none min-h-[150px] glow-input"
                   placeholder="Briefly describe your objectives..."
@@ -141,7 +141,7 @@ const Contact: React.FC = () => {
                 type="submit"
                 className="btn-contact-main w-full py-6 rounded-2xl font-black text-xs uppercase tracking-[0.4em] shadow-xl shadow-primary/20 flex items-center justify-center gap-4 animate-fade-in"
               >
-                Execute Inquiry
+                Submit Professional Inquiry
                 <span className="material-symbols-outlined text-lg">bolt</span>
               </button>
             </form>

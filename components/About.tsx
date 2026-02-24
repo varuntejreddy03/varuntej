@@ -13,8 +13,8 @@ const About: React.FC = () => {
   const facts = [
     { label: 'Current Base', value: 'Hyderabad, India', icon: 'location_on' },
     { label: 'Academic Path', value: 'B.Tech CS Engineering', icon: 'school' },
-    { label: 'Key Philosophy', value: 'Performance over Bloat', icon: 'terminal' },
-    { label: 'Open To', value: 'Internships / Remote', icon: 'calendar_today' }
+    { label: 'Key Philosophy', value: 'Performance & Scalability', icon: 'terminal' },
+    { label: 'Looking For', value: 'Full-Time Roles 2027', icon: 'rocket_launch' }
   ];
 
   return (
@@ -40,11 +40,11 @@ const About: React.FC = () => {
               </p>
 
               <p className="text-lg sm:text-xl text-slate-500 dark:text-slate-400 leading-relaxed font-medium max-w-2xl">
-                I operate at the intersection of <span className="text-slate-900 dark:text-white border-b-2 border-primary/20">Production-Grade Development</span> and <span className="text-slate-900 dark:text-white border-b-2 border-primary/20">AI Integration</span>. I build high-performance web applications using React, Next.js, FastAPI, and AWS.
+                I operate with an <span className="text-slate-900 dark:text-white border-b-2 border-primary/20">Engineering First</span> mindset. My philosophy focuses on building scalable, maintainable architectures that prioritize performance and quantifiable business results.
               </p>
 
               <p className="text-base sm:text-lg text-slate-500 dark:text-slate-400 leading-relaxed font-normal max-w-xl">
-                Currently, I am a <span className="font-bold text-primary">Full Stack Web Development Intern at StaffArc</span>, where I build production frontend interfaces for business clients while managing end-to-end deployment workflows.
+                Currently, I am a <span className="font-bold text-primary">Full Stack Web Development Intern at StaffArc</span>, where I lead frontend architecture decisions for complex B2B systems and integrate AI-driven automation into production workflows.
               </p>
             </div>
           </div>

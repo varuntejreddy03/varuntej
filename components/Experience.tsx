@@ -10,8 +10,8 @@ const Experience: React.FC = () => {
       role: 'Full Stack Web Development Intern',
       company: 'StaffArc (Early-Stage Startup)',
       period: 'Feb 2026 — Present',
-      desc: 'Building production-ready frontend interfaces for full-stack web applications. Translating client requirements into responsive, pixel-perfect UIs using React and Tailwind CSS.',
-      tags: ['React', 'Next.js', 'Tailwind'],
+      desc: 'Architecting production-ready frontend ecosystems for B2B clients. Reduced UI latency by 30% through optimized state management and asset delivery pipelines with React and Next.js.',
+      tags: ['System Arch', 'Next.js', 'Performance'],
       type: 'engineering'
     },
     {
