@@ -5,10 +5,10 @@ export const PROJECTS: Project[] = [
     id: 'proj-1',
     title: 'MedRAG',
     tagline: 'Optimizing healthcare diagnosis through sub-second, RAG-powered medical document analysis.',
-    description: 'An AI-powered healthcare diagnosis assistant built using Retrieval-Augmented Generation (RAG) architecture.',
+    description: 'RAG-based medical QA system, 4.4GB FAISS index, 2–3 sec response time, FastAPI + JWT + Docker',
     challenge: 'Medical professionals required a way to query massive clinical datasets without the latency or hallucinations common in standard LLMs.',
     solution: 'Developed a custom RAG pipeline using a 4.4GB FAISS vector index and Gemini API, hosted on AWS EC2 with Docker-optimized environments.',
-    results: 'Achieved sub-second query latency and zero-hallucination grounded responses for complex medical QA.',
+    results: 'Achieved 2–3 sec response time and high accuracy for complex medical QA with a 4.4GB FAISS index.',
     image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop',
     icon: 'clinical_notes',
     features: [
@@ -16,10 +16,30 @@ export const PROJECTS: Project[] = [
       'JWT-protected FastAPI backend with rate limiting',
       'AWS EC2/S3/RDS deployment via Docker'
     ],
-    tags: ['Next.js', 'FastAPI', 'FAISS', 'Gemini'],
+    tags: ['FastAPI', 'JWT', 'Docker', 'FAISS', 'Gemini'],
     liveUrl: 'https://medrag.site',
     repoUrl: 'https://github.com/varuntejreddy03/medrag_backend',
     category: 'ai'
+  },
+  {
+    id: 'proj-3',
+    title: 'KMCE Cricket Portal',
+    tagline: 'Centralizing tournament management through a real-time, role-based college sports platform.',
+    description: 'Live college tournament platform, 10 teams, 200+ players, React + Supabase + SQL',
+    challenge: 'Organizing inter-college tournaments manually led to data fragmentation and delayed score reporting.',
+    solution: 'Built a real-time management dashboard using Supabase and PostgreSQL, featuring role-based access for admins and teams.',
+    results: 'Streamlined ops for 10 teams and 200+ players with zero data loss and instant score updates.',
+    image: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2067&auto=format&fit=crop',
+    icon: 'sports_cricket',
+    features: [
+      'Real-time Supabase score synchronization',
+      'Role-based dashboard (Admin/Team)',
+      'SQL-backed match scheduling engine'
+    ],
+    tags: ['React', 'Supabase', 'SQL', 'Next.js'],
+    liveUrl: 'https://kmcecricket.varuntej.online/',
+    repoUrl: 'https://github.com/varuntejreddy03/kmcesports',
+    category: 'web-app'
   },
   {
     id: 'proj-2',
@@ -40,83 +60,23 @@ export const PROJECTS: Project[] = [
     liveUrl: 'https://jharoka.in',
     repoUrl: 'https://github.com/varuntejreddy03/Jharoka',
     category: 'client-work'
-  },
-  {
-    id: 'proj-3',
-    title: 'KMCE Cricket Portal',
-    tagline: 'Centralizing tournament management through a real-time, role-based college sports platform.',
-    description: 'A comprehensive tournament management platform for college cricket.',
-    challenge: 'Organizing inter-college tournaments manually led to data fragmentation and delayed score reporting.',
-    solution: 'Built a real-time management dashboard using Supabase and PostgreSQL, featuring role-based access for admins and teams.',
-    results: 'Streamlined ops for hundreds of players with zero data loss and instant score updates via live DB listeners.',
-    image: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2067&auto=format&fit=crop',
-    icon: 'sports_cricket',
-    features: [
-      'Real-time Supabase score synchronization',
-      'Role-based dashboard (Admin/Team)',
-      'SQL-backed match scheduling engine'
-    ],
-    tags: ['Next.js', 'Supabase', 'PostgreSQL'],
-    liveUrl: 'https://kmcecricket.varuntej.online/',
-    repoUrl: 'https://github.com/varuntejreddy03/kmcesports',
-    category: 'web-app'
-  },
-  {
-    id: 'proj-4',
-    title: 'The Grind Cafe',
-    tagline: 'Scaling local coffee culture through a high-speed, SEO-focused multi-location digital experience.',
-    description: 'Modern business website for a multi-location specialty cafe.',
-    challenge: 'The business lacked a central hub to handle multi-location menus while maintaining local SEO rankings.',
-    solution: 'Developed a localized SEO strategy within a Next.js framework, featuring dynamic location pages and optimized assets.',
-    results: 'Sustained Lighthouse performance scores above 90 and increased organic local search traffic significantly.',
-    image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=2078&auto=format&fit=crop',
-    icon: 'coffee',
-    features: [
-      '90+ Lighthouse mobile performance',
-      'Multi-location menu management',
-      'Integrated Google Maps & contact flow'
-    ],
-    tags: ['React', 'TypeScript', 'SEO'],
-    liveUrl: 'https://thegrindcafe.in',
-    repoUrl: 'https://github.com/varuntejreddy03/grindcafe',
-    category: 'client-work'
-  },
-  {
-    id: 'proj-5',
-    title: 'PartCart',
-    tagline: 'Modernizing event catering through a fluid, mobile-first inquiry and cart management system.',
-    description: 'Food ordering and catering inquiry platform (WIP).',
-    challenge: 'Current catering solutions fail to provide a smooth mobile inquiry process for event-scale orders.',
-    solution: 'Designing a responsive React application with context-driven cart management and fluid UI transitions.',
-    results: 'Built a modular ordering framework ready for high-traffic catering events.',
-    image: 'https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop',
-    icon: 'shopping_cart',
-    features: [
-      'React Context cart management',
-      'Fluid mobile-first inquiry flow',
-      'Dynamic order total calculation'
-    ],
-    tags: ['Next.js', 'React Context', 'Tailwind'],
-    liveUrl: 'https://partycart.vercel.app',
-    repoUrl: 'https://github.com/varuntejreddy03/partycart',
-    category: 'web-app'
   }
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: 'Frontend',
-    description: 'I specialize in React and Next.js because they provide the perfect balance of developer velocity and end-user performance. My approach centers on "Zero-Bloat UI," ensuring that every component serves a specific purpose while maintaining the highest possible Core Web Vitals.',
-    skills: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Framer Motion']
+    description: 'I specialize in React and Next.js for building production-grade interfaces. Modern styling with Tailwind CSS and type-safe development with TypeScript are core to my workflow.',
+    skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS']
   },
   {
     name: 'Backend & AI',
-    description: 'In the era of AI, a backend is only as good as its retrieval strategy. I focus on RAG architectures using FastAPI and Python, leveraging vector databases like FAISS to build systems that provide grounded, verifiable, and extremely fast responses.',
-    skills: ['Python', 'FastAPI', 'Node.js', 'RAG Systems', 'Vector Search', 'JWT Auth']
+    description: 'Focusing on AI-integrated systems using FastAPI and Node.js. Experienced in RAG architectures, FAISS, and Gemini API for sub-second intelligent responses.',
+    skills: ['Python', 'FastAPI', 'Node.js', 'SQL', 'RAG Architecture', 'FAISS', 'Gemini API']
   },
   {
-    name: 'Marketing & Cloud',
-    description: 'Great code is useless if it is never seen. My background in Digital Marketing informs how I architect apps for discoverability (SEO) and conversion. I use AWS to ensure that performance gains in development translate to robust, scalable production.',
-    skills: ['AWS (EC2/S3)', 'Docker', 'SEO Optimization', 'Google Ads', 'GA4']
+    name: 'Cloud & Marketing',
+    description: 'Managing end-to-end deployment workflows with AWS and Docker. Leveraging GA4 and SEO strategy to deliver high-performance, discoverable web applications.',
+    skills: ['AWS (EC2/S3/RDS)', 'Docker', 'Git', 'GA4', 'REST APIs', 'JWT', 'Supabase']
   }
 ];

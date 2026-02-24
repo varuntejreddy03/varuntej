@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
   const [text3, setText3] = useState('');
 
   const full1 = "Building ";
-  const full3 = "Web Solutions.";
+  const full3 = "Web Solutions @ StaffArc";
 
   useEffect(() => {
     if (isVisible) {
@@ -69,13 +69,13 @@ const Hero: React.FC = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-60"></span>
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span>
             </span>
-            Seeking 2025 Internships & Client Projects
+            Full Stack Developer | AI Systems | Intern @ StaffArc
           </div>
 
           {/* Typewriter Optimized Headline */}
           <div className="space-y-3 sm:space-y-4 mb-8 lg:mb-10 min-h-[140px] sm:min-h-[180px] lg:min-h-[220px]">
             <h2 className="text-primary text-base sm:text-xl font-bold italic tracking-tight opacity-80 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-              Hello, I'm Varuntej Reddy —
+              Hello, I'm Varuntej Reddy N —
             </h2>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white leading-[1.1] sm:leading-[1.05]">
               {text1}
@@ -123,7 +123,7 @@ const Hero: React.FC = () => {
 
           {/* Description */}
           <p className="text-base sm:text-xl text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-xl mb-12 animate-fade-in-up" style={{ animationDelay: '900ms' }}>
-            Bridging the gap between <span className="text-slate-900 dark:text-white font-bold border-b border-primary/30">academic engineering</span> and <span className="text-slate-900 dark:text-white font-bold border-b border-primary/30">digital results</span>. Currently seeking internship roles and building high-performance websites for clients.
+            Full Stack Intern at <span className="text-primary font-bold">StaffArc</span>, building production-ready frontends for real-world clients. Expert in React, Next.js, and FastAPI with a focus on high-performance AI integration.
           </p>
         </div>
 

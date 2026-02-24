@@ -52,8 +52,8 @@ const Contact: React.FC = () => {
             <span className="text-primary italic">something amazing.</span>
           </h2>
 
-          <p className="text-lg text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-md mb-12">
-            Whether you're looking for an <span className="text-slate-900 dark:text-white font-bold">Engineering Intern</span> or a developer to build your next <span className="text-slate-900 dark:text-white font-bold">Bespoke Website</span>, let's connect.
+          <p className="text-lg text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-md mb-12">
+            Whether you're looking for a <span className="text-slate-900 dark:text-white font-bold">Full Stack Developer</span> or an <span className="text-slate-900 dark:text-white font-bold">AI Engineer</span> for your next project, let's connect.
           </p>
 
           {/* Social Hub */}

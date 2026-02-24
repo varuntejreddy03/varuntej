@@ -40,11 +40,11 @@ const About: React.FC = () => {
               </p>
 
               <p className="text-lg sm:text-xl text-slate-500 dark:text-slate-400 leading-relaxed font-medium max-w-2xl">
-                I operate at the intersection of <span className="text-slate-900 dark:text-white border-b-2 border-primary/20">Academic Engineering</span> and <span className="text-slate-900 dark:text-white border-b-2 border-primary/20">Bespoke Client Solutions</span>. I build high-performance websites that aren't just pretty—they're engineered for conversions and speed.
+                I operate at the intersection of <span className="text-slate-900 dark:text-white border-b-2 border-primary/20">Production-Grade Development</span> and <span className="text-slate-900 dark:text-white border-b-2 border-primary/20">AI Integration</span>. I build high-performance web applications using React, Next.js, FastAPI, and AWS.
               </p>
 
               <p className="text-base sm:text-lg text-slate-500 dark:text-slate-400 leading-relaxed font-normal max-w-xl">
-                Currently, I'm looking to bring my system-level thinking to an <span className="font-bold text-primary">Engineering Internship</span> while continuing to help businesses scale their digital presence through tailored web architectures.
+                Currently, I am a <span className="font-bold text-primary">Full Stack Web Development Intern at StaffArc</span>, where I build production frontend interfaces for business clients while managing end-to-end deployment workflows.
               </p>
             </div>
           </div>

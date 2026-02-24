@@ -73,26 +73,26 @@ const ResumeContent: React.FC = () => {
                   <span className="p-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm group-hover:shadow-primary/20 transition-all">
                     <span className="material-symbols-outlined text-lg text-slate-400 group-hover:text-primary">mail</span>
                   </span>
-                  <span className="truncate">varuntejreddy03</span>
+                  <span className="truncate">varuntejreddy03@gmail.com</span>
                 </a>
+                <div className="flex items-center gap-3">
+                  <span className="p-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm">
+                    <span className="material-symbols-outlined text-lg text-slate-400">call</span>
+                  </span>
+                  <span>+91-8374967870</span>
+                </div>
                 <a href="https://linkedin.com/in/nvaruntej" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-primary transition-colors group">
                   <span className="p-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm group-hover:shadow-primary/20 transition-all">
                     <span className="material-symbols-outlined text-lg text-slate-400 group-hover:text-primary">link</span>
                   </span>
-                  <span>LinkedIn</span>
+                  <span>linkedin.com/in/nvaruntej</span>
                 </a>
                 <a href="https://github.com/varuntejreddy03" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-primary transition-colors group">
                   <span className="p-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm group-hover:shadow-primary/20 transition-all">
                     <span className="material-symbols-outlined text-lg text-slate-400 group-hover:text-primary">code</span>
                   </span>
-                  <span>GitHub</span>
+                  <span>github.com/varuntejreddy03</span>
                 </a>
-                <div className="flex items-center gap-3">
-                  <span className="p-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm">
-                    <span className="material-symbols-outlined text-lg text-slate-400">location_on</span>
-                  </span>
-                  <span>Hyderabad, India</span>
-                </div>
               </div>
             </div>
 
@@ -102,8 +102,8 @@ const ResumeContent: React.FC = () => {
               <div className="relative pl-4 border-l-2 border-slate-200 dark:border-slate-800">
                 <div className="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-primary" />
                 <div className="mb-1 text-slate-900 dark:text-white font-bold">B.Tech in CSE</div>
-                <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-2">KMCE, Hyderabad</div>
-                <div className="text-xs text-primary font-medium">2023 — 2027</div>
+                <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-2">Keshav Memorial College of Engineering</div>
+                <div className="text-xs text-primary font-medium">Expected 2027</div>
               </div>
             </div>
 
@@ -115,7 +115,7 @@ const ResumeContent: React.FC = () => {
                 <div>
                   <h4 className="text-[10px] font-bold text-slate-500 uppercase mb-3">Core & Frontend</h4>
                   <div className="flex flex-wrap gap-2">
-                    {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'].map(skill => (
+                    {['JavaScript', 'TypeScript', 'Python', 'Java', 'SQL', 'React', 'Next.js', 'Tailwind CSS'].map(skill => (
                       <span key={skill} className="px-3 py-1 bg-white dark:bg-slate-800 border border-slate-100 dark:border-white/5 rounded-md text-[10px] font-bold text-slate-700 dark:text-slate-300 hover:border-primary/30 transition-colors cursor-default">
                         {skill}
                       </span>
@@ -124,9 +124,9 @@ const ResumeContent: React.FC = () => {
                 </div>
 
                 <div>
-                  <h4 className="text-[10px] font-bold text-slate-500 uppercase mb-3">Backend & AI</h4>
+                  <h4 className="text-[10px] font-bold text-slate-500 uppercase mb-3">Backend, AI & Cloud</h4>
                   <div className="flex flex-wrap gap-2">
-                    {['Node.js', 'FastAPI', 'Python', 'RAG Systems', 'Gemini AI', 'Supabase'].map(skill => (
+                    {['FastAPI', 'Node.js', 'REST APIs', 'JWT', 'Supabase', 'RAG Architecture', 'FAISS', 'Gemini API', 'AWS', 'Docker', 'Git', 'GA4'].map(skill => (
                       <span key={skill} className="px-3 py-1 bg-white dark:bg-slate-800 border border-slate-100 dark:border-white/5 rounded-md text-[10px] font-bold text-slate-700 dark:text-slate-300 hover:border-primary/30 transition-colors cursor-default">
                         {skill}
                       </span>
@@ -146,7 +146,7 @@ const ResumeContent: React.FC = () => {
                 VARUNTEJ <span className="text-primary italic">REDDY N</span>
               </h1>
               <p className="text-lg text-slate-500 dark:text-slate-400 font-medium max-w-lg leading-relaxed">
-                Full-Stack Architect & AI Engineer building scalable, production-grade systems with a focus on modern aesthetics and performance.
+                Full-stack developer with hands-on experience building production-grade web applications using React, Next.js, FastAPI, and AWS.
               </p>
             </header>
 
@@ -164,15 +164,15 @@ const ResumeContent: React.FC = () => {
                   <div className="absolute left-0 top-2 w-4 h-4 rounded-full border-4 border-white dark:border-[#0b1121] bg-primary shadow-lg shadow-primary/30" />
 
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">Freelance Web Architect</h3>
-                    <span className="text-xs font-bold text-primary px-2 py-1 bg-primary/10 rounded-full uppercase tracking-widest">Present</span>
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">Full Stack Web Development Intern</h3>
+                    <span className="text-xs font-bold text-primary px-2 py-1 bg-primary/10 rounded-full uppercase tracking-widest">Feb 2026 – Present</span>
                   </div>
-                  <div className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">Self-Employed • Global</div>
+                  <div className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">StaffArc (Early-Stage Startup) • Remote</div>
 
                   <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-disc pl-4 marker:text-slate-300 dark:marker:text-slate-600">
-                    <li>Engineered high-performance digital presence for clients like <strong>Jharoka.in</strong> & <strong>The Grind Cafe</strong>.</li>
-                    <li>Achieved <strong>95+ Core Web Vitals</strong> scores through advanced caching strategies and asset optimization.</li>
-                    <li>Designed conversion-focused UI/UX resulting in measurable engagement growth.</li>
+                    <li>Building production-ready frontend interfaces for web applications serving real business clients using <strong>React</strong> and <strong>Tailwind CSS</strong>.</li>
+                    <li>Translating client requirements into responsive, pixel-perfect UIs with multiple projects simultaneously in active development.</li>
+                    <li>Working directly within a fast-moving startup environment, adapting quickly to codebase conventions and shipping features independently.</li>
                   </ul>
                 </div>
 
@@ -181,15 +181,15 @@ const ResumeContent: React.FC = () => {
                   <div className="absolute left-0 top-2 w-4 h-4 rounded-full border-4 border-white dark:border-[#0b1121] bg-slate-300 dark:bg-slate-700" />
 
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">Core Developer</h3>
-                    <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">2024</span>
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">Web Developer & Digital Marketing Analyst</h3>
+                    <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">2025 – Present</span>
                   </div>
-                  <div className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">MedRAG (AI Healthcare)</div>
+                  <div className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">Freelance Hyderabad</div>
 
                   <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-disc pl-4 marker:text-slate-300 dark:marker:text-slate-600">
-                    <li>Architected a <strong>RAG (Retrieval-Augmented Generation)</strong> system using <strong>FAISS</strong> vector search.</li>
-                    <li>Integrated <strong>Gemini 1.5 Pro</strong> for grounding medical insights with sub-second retrieval latency.</li>
-                    <li>Implemented secure data pipelines for handling sensitive clinical datasets.</li>
+                    <li>Built 3+ business websites with <strong>Lighthouse scores above 90</strong>.</li>
+                    <li>Integrated <strong>GA4</strong> and optimized technical SEO for improved discoverability.</li>
+                    <li>Designed conversion-focused UI/UX resulting in measurable engagement growth.</li>
                   </ul>
                 </div>
               </div>

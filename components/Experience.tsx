@@ -7,26 +7,26 @@ const Experience: React.FC = () => {
 
   const history = [
     {
-      role: 'Freelance Web Architect',
-      company: 'Self-Employed / Client Base',
-      period: '2023 — Present',
-      desc: 'Building high-performance digital presence for businesses like Jharoka Heritage and The Grind Cafe. Focused on high-conversion funnels and SEO excellence.',
-      tags: ['Client Work', 'Growth', 'SEO'],
-      type: 'client'
+      role: 'Full Stack Web Development Intern',
+      company: 'StaffArc (Early-Stage Startup)',
+      period: 'Feb 2026 — Present',
+      desc: 'Building production-ready frontend interfaces for full-stack web applications. Translating client requirements into responsive, pixel-perfect UIs using React and Tailwind CSS.',
+      tags: ['React', 'Next.js', 'Tailwind'],
+      type: 'engineering'
     },
     {
-      role: 'Core Developer',
-      company: 'MedRAG (AI Project)',
-      period: '2024',
-      desc: 'Architected local RAG systems for healthcare data. Focused on sub-second retrieval using FAISS and Gemini LLM grounding.',
-      tags: ['AI/ML', 'RAG', 'Python'],
-      type: 'engineering'
+      role: 'Web Developer & Digital Marketing Analyst',
+      company: 'Freelance Hyderabad',
+      period: '2025 — Present',
+      desc: 'Built 3+ business websites with Lighthouse scores above 90. Integrated GA4 and optimized technical SEO for local businesses.',
+      tags: ['Client Work', 'SEO', 'GA4'],
+      type: 'client'
     },
     {
       role: 'CS Engineering Student',
       company: 'KMCE, Hyderabad',
       period: '2023 — 2027',
-      desc: 'Maintaining a strong academic foundation while applying theoretical system design to real-world software challenges.',
+      desc: 'B.Tech CSE student maintaining a strong academic foundation while building industry-relevant full-stack applications.',
       tags: ['Foundations', 'Algorithms'],
       type: 'academic'
     }

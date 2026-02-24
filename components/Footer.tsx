@@ -21,11 +21,11 @@ const Footer: React.FC = () => {
                 V
               </div>
               <span className="text-2xl font-black tracking-tighter text-slate-900 dark:text-white uppercase">
-                Varuntej <span className="text-primary italic">Reddy</span>
+                Varuntej <span className="text-primary italic">Reddy N</span>
               </span>
             </div>
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm font-medium">
-              Bridging the gap between high-performance engineering and tailored web solutions for businesses. Building the future, one pixel at a time.
+              Full-stack developer building production-grade web applications with React, Next.js, FastAPI, and AWS.
             </p>
             <div className="flex gap-4 pt-2">
               <a
