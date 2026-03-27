@@ -1,177 +1,159 @@
-import React, { useState, useEffect } from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { useMagnetic } from '../hooks/useMagnetic';
-import '../hero.css';
+'use client';
 
-const Hero: React.FC = () => {
-  const { ref, isVisible } = useScrollAnimation();
-  const projectBtnRef = useMagnetic() as React.RefObject<HTMLAnchorElement>;
-  const resumeBtnRef = useMagnetic() as React.RefObject<HTMLButtonElement>;
+// Hero upgrades the headline, resume CTA, visitor pulse, and live status without changing the dark engineering aesthetic.
+import { useEffect, useState } from 'react';
+import type { RefObject } from 'react';
+import { useMagnetic } from '@/hooks/useMagnetic';
+import LiveStatus from '@/components/LiveStatus';
+import ResumeButton from '@/components/ResumeButton';
+import VisitorPulse from '@/components/VisitorPulse';
+import { heroCycleWords, heroStats, owner } from '@/lib/content';
 
-  // Typing Animation States
-  const [text1, setText1] = useState('');
-  const [showAdvanced, setShowAdvanced] = useState(false);
-  const [text3, setText3] = useState('');
-
-  const full1 = "Building ";
-  const full3 = "Web Solutions @ StaffArc";
+export default function Hero() {
+  const projectBtnRef = useMagnetic() as RefObject<HTMLAnchorElement>;
+  const [activeWord, setActiveWord] = useState(0);
 
   useEffect(() => {
-    if (isVisible) {
-      let i = 0;
-      const interval1 = setInterval(() => {
-        if (i <= full1.length) {
-          setText1(full1.substring(0, i));
-          i++;
-        } else {
-          clearInterval(interval1);
-          setShowAdvanced(true);
-          setTimeout(() => {
-            let j = 0;
-            const interval3 = setInterval(() => {
-              if (j <= full3.length) {
-                setText3(full3.substring(0, j));
-                j++;
-              } else {
-                clearInterval(interval3);
-              }
-            }, 40);
-          }, 300);
-        }
-      }, 50);
-    }
-  }, [isVisible]);
+    const timer = window.setInterval(() => {
+      setActiveWord((current) => (current + 1) % heroCycleWords.length);
+    }, 1900);
+
+    return () => window.clearInterval(timer);
+  }, []);
 
   const focusAreas = [
-    { title: 'Frontend Architecture', icon: 'auto_awesome_motion', desc: 'Crafting pixel-perfect, liquid interfaces.' },
-    { title: 'Intelligence Systems', icon: 'cognition', desc: 'Integrating RAG & Agentic AI workflows.' },
-    { title: 'System Performance', icon: 'speed', desc: 'Lighthouse 95+ score optimization.' }
+    {
+      title: 'Frontend Delivery',
+      icon: 'web',
+      desc: '18+ production launches with responsive, conversion-ready UI systems.',
+    },
+    {
+      title: 'Backend + AI',
+      icon: 'memory',
+      desc: 'RAG pipelines, FastAPI services, JWT auth, RBAC, and vector search.',
+    },
+    {
+      title: 'Cloud Deploy',
+      icon: 'cloud_upload',
+      desc: 'Dockerized releases on AWS, Vercel, Netlify, and CI/CD pipelines.',
+    },
   ];
 
   return (
-    <section id="home" className="relative pt-24 pb-20 lg:pt-28 lg:pb-24 px-4 sm:px-0 overflow-hidden min-h-[90vh] lg:min-h-[95vh] flex items-center">
-      {/* Cinematic Background Layer */}
-      <div className="hero-grid-pattern opacity-50" />
-      <div className="hero-ambient-orb orb-1 opacity-20" />
-      <div className="hero-ambient-orb orb-2 opacity-10" />
+    <section
+      id="home"
+      className="relative flex min-h-[94vh] items-center overflow-hidden px-4 pt-28 sm:px-0 lg:pt-32"
+    >
+      <div className="hero-grid-pattern opacity-60" />
+      <div className="hero-ambient-orb orb-1 opacity-25" />
+      <div className="hero-ambient-orb orb-2 opacity-20" />
 
-      {/* Decorative Light Rays - Hidden on mobile for performance */}
-      <div className="hidden lg:block absolute top-0 right-[20%] w-[1px] h-full bg-gradient-to-b from-primary/20 via-transparent to-transparent rotate-12" />
-      <div className="hidden lg:block absolute top-0 right-[35%] w-[1px] h-full bg-gradient-to-b from-blue-500/10 via-transparent to-transparent rotate-12" />
-
-      <div ref={ref} className={`relative z-10 w-full grid lg:grid-cols-[1.5fr_1fr] gap-12 lg:gap-20 items-center transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
-
-        {/* Refined Content (Left side) */}
-        <div className="flex flex-col items-start text-left">
-          {/* Status Badge */}
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-primary/5 border border-primary/10 backdrop-blur-md text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.4em] text-primary mb-8 lg:mb-12 animate-fade-in-up">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-60"></span>
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
+      <div className="relative z-10 grid w-full gap-10 lg:grid-cols-[1.28fr_0.92fr] lg:items-center lg:gap-16">
+        <div className="max-w-3xl">
+          <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-[9px] font-black uppercase tracking-[0.34em] text-primary">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
             </span>
-            Open to Full-Time Graduate Roles 2027 | Intern @ StaffArc
+            Open to Graduate Roles 2027 | Full Stack Intern @ StaffArc
           </div>
 
-          {/* Typewriter Optimized Headline */}
-          <div className="space-y-3 sm:space-y-4 mb-8 lg:mb-10 min-h-[140px] sm:min-h-[180px] lg:min-h-[220px]">
-            <h2 className="text-primary text-base sm:text-xl font-bold italic tracking-tight opacity-80 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-              Hello, I'm Varuntej Reddy N —
-            </h2>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white leading-[1.1] sm:leading-[1.05]">
-              {text1}
-              <span className={`px-2 sm:px-4 inline-block transform -rotate-1 bg-primary text-white mx-1 sm:mx-2 rounded-lg skew-x-[-10deg] transition-all duration-500 ${showAdvanced ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-90 blur-md'}`}>
-                Advanced
-              </span>
-              <br />
-              {text3}
-              {isVisible && (text3.length < full3.length || !showAdvanced) && <span className="inline-block w-1 h-8 sm:w-1.5 sm:h-12 bg-primary ml-1 sm:ml-2 animate-pulse align-middle" />}
-            </h1>
+          <p className="mb-5 text-sm font-black uppercase tracking-[0.28em] text-slate-400">
+            Hello, I&apos;m {owner.name}
+          </p>
+
+          <h1 className="text-4xl font-black leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl">
+            Building{' '}
+            <span className="inline-flex min-w-[1ch] rounded-xl bg-primary px-3 py-1 text-white shadow-lg shadow-primary/25 transition-all duration-500">
+              {heroCycleWords[activeWord]}
+            </span>
+            <br />
+            Web Solutions
+          </h1>
+
+          <p className="mt-7 max-w-2xl text-base leading-8 text-slate-400 sm:text-lg">
+            Full Stack Developer + AI Engineer based in Hyderabad, shipping client systems, real-time apps, and RAG pipelines with React, Next.js, FastAPI, Supabase, and AWS.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-5">
+            {heroStats.map((stat) => (
+              <div key={stat.label} className="rounded-[1.4rem] border border-white/10 bg-white/5 px-5 py-4">
+                <p className="text-2xl font-black tracking-tight text-white sm:text-3xl">{stat.value}</p>
+                <p className="mt-2 text-[9px] font-black uppercase tracking-[0.28em] text-slate-500">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
           </div>
 
-          {/* Meta Details Row */}
-          <div className="flex flex-wrap gap-6 sm:gap-8 mb-8 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
-            <div className="flex items-center gap-2 sm:gap-3">
-              <span className="material-symbols-outlined text-slate-400 text-base sm:text-lg">school</span>
-              <p className="text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-300">CS Engineering</p>
-            </div>
-            <div className="flex items-center gap-2 sm:gap-3">
-              <span className="material-symbols-outlined text-slate-400 text-base sm:text-lg">location_on</span>
-              <p className="text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-300">Hyderabad, IN</p>
-            </div>
-          </div>
-
-          {/* Action Hub */}
-          <div className="flex flex-wrap gap-4 sm:gap-6 items-center mb-10 animate-fade-in-up" style={{ animationDelay: '700ms' }}>
+          <div className="mt-8 flex flex-wrap items-start gap-4">
             <a
               ref={projectBtnRef}
               href="#projects"
-              className="px-6 sm:px-10 py-4 sm:py-5 bg-primary text-white rounded-2xl font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em] shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all text-center"
+              className="inline-flex items-center gap-3 rounded-2xl bg-primary px-7 py-4 text-[10px] font-black uppercase tracking-[0.3em] text-white shadow-xl shadow-primary/25 transition-all hover:-translate-y-0.5 hover:shadow-primary/40"
             >
-              Projects
+              Explore Projects
+              <span className="material-symbols-outlined text-lg">north_east</span>
             </a>
-            <button
-              ref={resumeBtnRef}
-              onClick={() => {
-                window.history.pushState({}, '', '/resume');
-                window.dispatchEvent(new PopStateEvent('popstate'));
-              }}
-              className="px-6 sm:px-10 py-4 sm:py-5 glass-card border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-2xl font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em] hover:bg-slate-50 dark:hover:bg-white/5 transition-all text-center"
-            >
-              CV
-            </button>
+            <ResumeButton
+              label="View Resume"
+              className="bg-white/5 px-7 py-4 text-[10px] text-slate-100"
+              icon="download"
+            />
           </div>
 
-          {/* Description */}
-          <p className="text-base sm:text-xl text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-xl mb-12 animate-fade-in-up" style={{ animationDelay: '900ms' }}>
-            Full Stack Intern at <span className="text-primary font-bold">StaffArc</span>. Delivering production-grade UIs and scalable <span className="text-slate-900 dark:text-white font-bold border-b border-primary/30">AI-integrated backends</span>. Focused on bridging complex system engineering with fluid, high-conversion user experiences.
-          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <VisitorPulse />
+            <a
+              href={`mailto:${owner.email}`}
+              className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.28em] text-slate-300 transition-colors hover:border-primary/30"
+            >
+              <span className="material-symbols-outlined text-sm text-primary">mail</span>
+              {owner.email}
+            </a>
+          </div>
         </div>
 
-        {/* Improved Intelligence Hub Card - Stacked on Mobile */}
-        <div className="relative animate-fade-in-up" style={{ animationDelay: '1.1s' }}>
-          <div className="absolute -inset-4 bg-primary/5 rounded-[3rem] sm:rounded-[4rem] blur-2xl opacity-50 block lg:block" />
-
-          <div className="relative premium-glass rounded-[2rem] sm:rounded-[3.5rem] p-6 sm:p-10 border border-slate-200 dark:border-white/5 bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl">
-            <div className="flex justify-between items-center mb-8 sm:mb-10">
-              <h4 className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.4em] text-slate-500">Service Stack</h4>
-              <div className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_10px_#22c55e]" />
+        <div className="relative">
+          <div className="absolute -inset-4 rounded-[3rem] bg-primary/10 blur-3xl" />
+          <div className="premium-glass relative rounded-[2.4rem] border border-white/10 bg-[#101723]/80 p-6 sm:p-8">
+            <div className="mb-7 flex items-center justify-between">
+              <h3 className="text-[10px] font-black uppercase tracking-[0.36em] text-slate-500">Service Stack</h3>
+              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_14px_#34d399]" />
             </div>
 
-            <div className="space-y-6 sm:space-y-8">
-              {focusAreas.map((area, i) => (
-                <div key={i} className="group/item flex items-center gap-4 sm:gap-6 p-2 sm:p-4 rounded-2xl hover:bg-white/10 dark:hover:bg-white/5 transition-all duration-300">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-all shrink-0">
-                    <span className="material-symbols-outlined text-xl sm:text-2xl">{area.icon}</span>
+            <div className="space-y-4">
+              {focusAreas.map((item) => (
+                <div
+                  key={item.title}
+                  className="group/item flex items-start gap-4 rounded-[1.4rem] border border-white/5 bg-white/[0.03] p-4 transition-all hover:border-primary/20 hover:bg-white/[0.05]"
+                >
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all group-hover/item:bg-primary group-hover/item:text-white">
+                    <span className="material-symbols-outlined">{item.icon}</span>
                   </div>
                   <div>
-                    <h5 className="text-[10px] sm:text-[11px] font-black text-slate-900 dark:text-white uppercase tracking-widest leading-tight mb-1">{area.title}</h5>
-                    <p className="text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 font-medium leading-tight">{area.desc}</p>
+                    <h4 className="text-[11px] font-black uppercase tracking-[0.22em] text-white">{item.title}</h4>
+                    <p className="mt-2 text-xs leading-6 text-slate-400">{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Status Footer Card */}
-            <div className="mt-8 sm:mt-12 bg-slate-900 dark:bg-white text-white dark:text-slate-900 p-4 sm:p-6 rounded-2xl sm:rounded-3xl flex items-center justify-between shadow-xl">
-              <div>
-                <p className="text-[7px] sm:text-[8px] font-black opacity-50 uppercase tracking-[0.2em] mb-1">Response Time</p>
-                <p className="text-[10px] sm:text-xs font-bold font-mono">{'<'} 24 Hours</p>
+            <div className="mt-6 grid gap-4">
+              <LiveStatus />
+              <div className="rounded-[1.8rem] bg-white px-5 py-4 text-slate-900">
+                <p className="text-[9px] font-black uppercase tracking-[0.28em] text-slate-500">Response Time</p>
+                <div className="mt-2 flex items-center justify-between">
+                  <p className="font-mono text-sm font-bold">&lt; 24 hours</p>
+                  <a href="#contact" className="rounded-full bg-primary p-2 text-white transition-transform hover:scale-110">
+                    <span className="material-symbols-outlined text-lg">mail</span>
+                  </a>
+                </div>
               </div>
-              <a href="#contact" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-white flex items-center justify-center hover:scale-110 transition-transform">
-                <span className="material-symbols-outlined text-base">mail</span>
-              </a>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Refined Scroll Tip - Hidden on mobile */}
-      <div className="hidden lg:flex absolute left-0 bottom-8 items-center gap-4 opacity-30">
-        <div className="w-px h-12 bg-primary animate-bounce-slow" />
-        <span className="text-[8px] font-black uppercase tracking-[0.4em] vertical-text">Infinite Scroll</span>
-      </div>
     </section>
   );
-};
-
-export default Hero;
+}

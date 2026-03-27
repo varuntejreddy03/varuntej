@@ -1,69 +1,62 @@
-import React, { useState } from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import '../contact.css';
+'use client';
 
-const Contact: React.FC = () => {
+// Contact keeps the terminal-style layout and swaps in the Brevo-backed form component.
+import ContactForm from '@/components/ContactForm';
+import { owner } from '@/lib/content';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+
+export default function Contact() {
   const { ref, isVisible } = useScrollAnimation();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const whatsappMessage = encodeURIComponent(
-      `*System Inquiry*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Payload:* ${formData.message}`
-    );
-    window.open(`https://wa.me/918374967870?text=${whatsappMessage}`, '_blank');
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
 
   const socialLinks = [
-    { name: 'GitHub', icon: 'terminal', url: 'https://github.com/varuntejreddy03' },
-    { name: 'LinkedIn', icon: 'box', url: 'https://linkedin.com/in/nvaruntej' },
-    { name: 'Email', icon: 'mail', url: 'mailto:varuntejreddy03@gmail.com' }
+    { name: 'GitHub', icon: 'terminal', url: owner.github },
+    { name: 'LinkedIn', icon: 'public', url: owner.linkedin },
+    { name: 'Email', icon: 'mail', url: `mailto:${owner.email}` },
   ];
 
   return (
-    <section id="contact" className="py-12 lg:py-24 border-t border-slate-200 dark:border-white/5 relative overflow-hidden px-4 sm:px-0">
-      {/* Decorative Blur */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full lg:w-[800px] h-full lg:h-[800px] bg-primary/5 blur-[160px] rounded-full pointer-events-none" />
+    <section id="contact" className="relative overflow-hidden border-t border-white/5 px-4 py-14 sm:px-0 lg:py-24">
+      <div className="absolute left-1/2 top-1/2 h-[38rem] w-[38rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[180px]" />
 
       <div
         ref={ref}
-        className={`relative z-10 grid lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-32 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        className={`relative z-10 grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:gap-20 ${isVisible ? 'section-fade is-visible' : 'section-fade'}`}
       >
-        {/* Left: Content & CTA */}
         <div>
-          <h3 className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-8 lg:mb-12 flex items-center gap-4">
-            Get in touch
-            <span className="h-px w-12 bg-primary/30" />
-          </h3>
-
-          <h2 className="text-3xl sm:text-6xl font-black tracking-tighter text-slate-900 dark:text-white leading-[1.1] mb-8 lg:mb-10">
-            Let's build <br />
-            <span className="text-primary italic">something amazing.</span>
+          <p className="mb-5 text-[10px] font-black uppercase tracking-[0.42em] text-primary">Get In Touch</p>
+          <h2 className="text-3xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Build something that ships clean.
           </h2>
-
-          <p className="text-lg text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-md mb-12">
-            Currently open to <span className="text-slate-900 dark:text-white font-bold">Full-Time Engineering Roles (2027)</span> and high-impact freelance collaborations. Let's discuss how I can contribute to your team.
+          <p className="mt-7 max-w-xl text-base leading-8 text-slate-400">
+            Available for websites, AI systems, full stack apps, and selective collaboration with teams that care about actual production quality.
           </p>
 
-          {/* Social Hub */}
-          <div className="flex gap-4">
+          <div className="mt-10 space-y-4 text-sm text-slate-300">
+            <p className="flex items-center gap-3">
+              <span className="material-symbols-outlined text-primary">location_on</span>
+              {owner.location}
+            </p>
+            <p className="flex items-center gap-3">
+              <span className="material-symbols-outlined text-primary">mail</span>
+              <a href={`mailto:${owner.email}`} className="hover:text-white">
+                {owner.email}
+              </a>
+            </p>
+            <p className="flex items-center gap-3">
+              <span className="material-symbols-outlined text-primary">call</span>
+              <a href={`tel:${owner.phone}`} className="hover:text-white">
+                {owner.phone}
+              </a>
+            </p>
+          </div>
+
+          <div className="mt-10 flex gap-4">
             {socialLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={link.url.startsWith('http') ? '_blank' : undefined}
+                rel={link.url.startsWith('http') ? 'noreferrer' : undefined}
                 className="social-link-item group/link"
                 title={link.name}
               >
@@ -72,93 +65,24 @@ const Contact: React.FC = () => {
             ))}
           </div>
 
-          <div className="mt-16 space-y-4">
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Response Pattern</p>
-            <div className="flex items-center gap-4">
+          <div className="mt-14 rounded-[2rem] border border-white/10 bg-white/5 p-5">
+            <p className="text-[10px] font-black uppercase tracking-[0.28em] text-slate-500">Response Pattern</p>
+            <div className="mt-4 flex items-center gap-4">
               <div className="flex gap-1">
-                {[0, 1, 2, 3, 4].map(i => (
-                  <div key={i} className={`w-1 h-6 rounded-full bg-primary ${i < 4 ? 'opacity-100' : 'opacity-20'}`} />
+                {[0, 1, 2, 3, 4].map((bar) => (
+                  <span
+                    key={bar}
+                    className={`h-6 w-1 rounded-full ${bar < 4 ? 'bg-primary' : 'bg-primary/20'}`}
+                  />
                 ))}
               </div>
-              <span className="text-xs font-bold text-slate-900 dark:text-white">Usually within 24h</span>
+              <span className="text-sm font-bold text-slate-200">Usually within 24h</span>
             </div>
           </div>
         </div>
 
-        {/* Right: The Terminal Form */}
-        <div className="relative">
-          <div className="contact-terminal rounded-[2.5rem] overflow-hidden">
-            {/* Terminal Header */}
-            <div className="terminal-header px-8 py-5 flex items-center justify-between">
-              <div className="flex gap-2.5">
-                <div className="dot bg-[#ff5f56]" />
-                <div className="dot bg-[#ffbd2e]" />
-                <div className="dot bg-[#27c93f]" />
-              </div>
-              <span className="text-[10px] font-bold font-mono text-slate-500 tracking-widest uppercase">System.Connect()</span>
-            </div>
-
-            <form className="p-10 lg:p-14 space-y-8" onSubmit={handleSubmit}>
-              <div className="space-y-2">
-                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Professional Identity</label>
-                <input
-                  className="w-full bg-slate-100 dark:bg-white/5 border border-transparent focus:border-primary rounded-2xl px-6 py-5 text-sm font-bold text-slate-900 dark:text-white outline-none transition-all glow-input"
-                  placeholder="Full Name / Company"
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Endpoint</label>
-                <input
-                  className="w-full bg-slate-100 dark:bg-white/5 border border-transparent focus:border-primary rounded-2xl px-6 py-5 text-sm font-bold text-slate-900 dark:text-white outline-none transition-all glow-input"
-                  placeholder="name@email.com"
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Inquiry Context</label>
-                <textarea
-                  className="w-full bg-slate-100 dark:bg-white/5 border border-transparent focus:border-primary rounded-2xl px-6 py-5 text-sm font-bold text-slate-900 dark:text-white outline-none transition-all resize-none min-h-[150px] glow-input"
-                  placeholder="Briefly describe your objectives..."
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="btn-contact-main w-full py-6 rounded-2xl font-black text-xs uppercase tracking-[0.4em] shadow-xl shadow-primary/20 flex items-center justify-center gap-4 animate-fade-in"
-              >
-                Submit Professional Inquiry
-                <span className="material-symbols-outlined text-lg">bolt</span>
-              </button>
-            </form>
-          </div>
-
-          {/* Floating Status Detail */}
-          <div className="absolute -bottom-8 -right-8 p-6 bg-slate-900 text-white rounded-3xl shadow-2xl hidden lg:block">
-            <div className="flex items-center gap-3 mb-1">
-              <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-              <p className="text-[8px] font-black uppercase tracking-[0.4em] opacity-60">Status</p>
-            </div>
-            <p className="text-[10px] font-bold font-mono">ENCRYPTED_SSL_ACTIVE</p>
-          </div>
-        </div>
+        <ContactForm />
       </div>
     </section>
   );
-};
-
-export default Contact;
+}

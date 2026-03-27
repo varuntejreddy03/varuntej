@@ -1,20 +1,20 @@
-import React, { memo } from 'react';
+'use client';
 
-const Logo: React.FC = () => {
+// Logo keeps the existing round mark and gives it a subtle electric-blue hover glow.
+import Image from 'next/image';
+
+export default function Logo() {
   return (
-    <div className="relative group cursor-pointer">
-      {/* Glow Effect */}
-      <div className="absolute inset-0 bg-primary blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-500 rounded-full" />
-
-      {/* User's Custom Logo Image */}
-      <img
+    <div className="group relative">
+      <div className="absolute inset-0 rounded-full bg-primary/40 blur-lg opacity-0 transition-opacity duration-500 group-hover:opacity-60" />
+      <Image
         src="/criclelogo.png"
-        alt="Varuntej Reddy Logo"
-        className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white object-contain relative z-10 transition-transform duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:rotate-[360deg]"
-        loading="eager"
+        alt="Varun Tej Reddy N logo"
+        width={40}
+        height={40}
+        priority
+        className="relative z-10 rounded-full bg-white object-contain transition-transform duration-700 group-hover:rotate-[360deg]"
       />
     </div>
   );
-};
-
-export default memo(Logo);
+}

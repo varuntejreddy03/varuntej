@@ -1,0 +1,42 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#0D0F14"/>
+  <rect x="44" y="44" width="1512" height="812" rx="40" fill="url(#panel)" stroke="rgba(255,255,255,0.08)"/>
+  <circle cx="1240" cy="170" r="220" fill="url(#glowA)" opacity="0.65"/>
+  <circle cx="270" cy="700" r="260" fill="url(#glowB)" opacity="0.3"/>
+  <rect x="120" y="126" width="260" height="42" rx="21" fill="#2563EB" fill-opacity="0.18" stroke="#60A5FA" stroke-opacity="0.35"/>
+  <text x="148" y="153" fill="#93C5FD" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="700" letter-spacing="3">CLIENT DELIVERY</text>
+  <text x="118" y="284" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="80" font-weight="800">18+ Launches</text>
+  <text x="122" y="346" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="28">Production websites shipped across brands, services, and growth stages</text>
+  <rect x="118" y="418" width="1360" height="330" rx="36" fill="#0F172A" fill-opacity="0.72" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="164" y="470" width="314" height="94" rx="22" fill="#111827" stroke="rgba(96,165,250,0.22)"/>
+  <text x="194" y="527" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="30" font-weight="700">Bear Harbor</text>
+  <rect x="500" y="470" width="314" height="94" rx="22" fill="#111827" stroke="rgba(96,165,250,0.22)"/>
+  <text x="530" y="527" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="30" font-weight="700">Aikya Spaces</text>
+  <rect x="836" y="470" width="314" height="94" rx="22" fill="#111827" stroke="rgba(96,165,250,0.22)"/>
+  <text x="866" y="527" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="30" font-weight="700">Naati Dosa</text>
+  <rect x="1162" y="470" width="270" height="94" rx="22" fill="#111827" stroke="rgba(96,165,250,0.22)"/>
+  <text x="1192" y="527" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="30" font-weight="700">SABP Tech</text>
+  <rect x="164" y="590" width="540" height="112" rx="24" fill="#0B1220" stroke="rgba(255,255,255,0.06)"/>
+  <text x="194" y="634" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="22" font-weight="700">DELIVERY QUALITY</text>
+  <text x="194" y="680" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="38" font-weight="800">0 critical post-launch defects</text>
+  <rect x="732" y="590" width="350" height="112" rx="24" fill="#0B1220" stroke="rgba(255,255,255,0.06)"/>
+  <text x="762" y="634" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="22" font-weight="700">RANGE</text>
+  <text x="762" y="680" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="38" font-weight="800">5+ industries</text>
+  <rect x="1108" y="590" width="324" height="112" rx="24" fill="#0B1220" stroke="rgba(255,255,255,0.06)"/>
+  <text x="1138" y="634" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="22" font-weight="700">SPRINTS</text>
+  <text x="1138" y="680" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="38" font-weight="800">Agile delivery</text>
+  <defs>
+    <linearGradient id="panel" x1="120" y1="90" x2="1420" y2="850" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101723"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1240 170) rotate(90) scale(220)">
+      <stop stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(270 700) rotate(90) scale(260)">
+      <stop stop-color="#0EA5E9"/>
+      <stop offset="1" stop-color="#0EA5E9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

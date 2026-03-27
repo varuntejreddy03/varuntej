@@ -9,7 +9,7 @@ export const PROJECTS: Project[] = [
     challenge: 'Medical professionals required a way to query massive clinical datasets without the latency or hallucinations common in standard LLMs.',
     solution: 'Developed a custom RAG pipeline using a 4.4GB FAISS vector index and Gemini API, hosted on AWS EC2 with Docker-optimized environments.',
     results: 'Achieved 2–3 sec response time and high accuracy for complex medical QA with a 4.4GB FAISS index.',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop',
+    image: '/medrag-cover.svg',
     icon: 'clinical_notes',
     features: [
       '4.4GB FAISS vector index for localized knowledge',
@@ -29,7 +29,7 @@ export const PROJECTS: Project[] = [
     challenge: 'Organizing inter-college tournaments manually led to data fragmentation and delayed score reporting.',
     solution: 'Built a real-time management dashboard using Supabase and PostgreSQL, featuring role-based access for admins and teams.',
     results: 'Streamlined ops for 10 teams and 200+ players with zero data loss and instant score updates.',
-    image: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2067&auto=format&fit=crop',
+    image: '/kmce-cricket-cover.svg',
     icon: 'sports_cricket',
     features: [
       'Real-time Supabase score synchronization',

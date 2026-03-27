@@ -1,98 +1,78 @@
-import React from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import '../experience.css';
+'use client';
 
-const Experience: React.FC = () => {
+// Experience replaces the old placeholder timeline with the real internship, freelance, and education story.
+import ResumeButton from '@/components/ResumeButton';
+import { experienceTimeline } from '@/lib/content';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+
+export default function Experience() {
   const { ref, isVisible } = useScrollAnimation();
 
-  const history = [
-    {
-      role: 'Full Stack Web Development Intern',
-      company: 'StaffArc (Early-Stage Startup)',
-      period: 'Feb 2026 — Present',
-      desc: 'Architecting production-ready frontend ecosystems for B2B clients. Reduced UI latency by 30% through optimized state management and asset delivery pipelines with React and Next.js.',
-      tags: ['System Arch', 'Next.js', 'Performance'],
-      type: 'engineering'
-    },
-    {
-      role: 'Web Developer & Digital Marketing Analyst',
-      company: 'Freelance Hyderabad',
-      period: '2025 — Present',
-      desc: 'Built 3+ business websites with Lighthouse scores above 90. Integrated GA4 and optimized technical SEO for local businesses.',
-      tags: ['Client Work', 'SEO', 'GA4'],
-      type: 'client'
-    },
-    {
-      role: 'CS Engineering Student',
-      company: 'KMCE, Hyderabad',
-      period: '2023 — 2027',
-      desc: 'B.Tech CSE student maintaining a strong academic foundation while building industry-relevant full-stack applications.',
-      tags: ['Foundations', 'Algorithms'],
-      type: 'academic'
-    }
-  ];
-
   return (
-    <section id="experience" className="py-12 lg:py-24 border-t border-slate-200 dark:border-white/5 relative overflow-hidden px-4 sm:px-0">
-      <div
-        ref={ref}
-        className={`relative z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-      >
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+    <section id="experience" className="relative overflow-hidden border-t border-white/5 px-4 py-14 sm:px-0 lg:py-24">
+      <div ref={ref} className={isVisible ? 'section-fade is-visible' : 'section-fade'}>
+        <div className="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
-            <h3 className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-6 flex items-center gap-4">
-              Career Path
-              <span className="h-px w-12 bg-primary/30" />
-            </h3>
-            <h2 className="text-3xl sm:text-6xl font-black tracking-tighter text-slate-900 dark:text-white leading-none">
-              Professional <span className="text-primary italic">Trajectory.</span>
+            <p className="mb-4 text-[10px] font-black uppercase tracking-[0.42em] text-primary">Career Path</p>
+            <h2 className="text-3xl font-black tracking-tight text-white sm:text-5xl">
+              Professional trajectory.
             </h2>
           </div>
-          <div className="flex gap-4">
-            <a href="/resume.pdf" download className="flex items-center gap-2 group cursor-pointer">
-              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover:text-primary transition-colors">Download CV</span>
-              <span className="material-symbols-outlined text-slate-400 group-hover:text-primary group-hover:translate-y-1 transition-all">download</span>
-            </a>
-          </div>
+          <ResumeButton
+            label="View Resume"
+            className="bg-white/5 px-6 py-4 text-[10px] text-slate-100"
+          />
         </div>
 
-        <div className="relative pl-4 sm:pl-8">
+        <div className="relative pl-5 sm:pl-8">
           <div className="timeline-line" />
-
-          <div className="space-y-12 lg:space-y-20">
-            {history.map((item, i) => (
-              <div
-                key={i}
-                className={`relative transition-all duration-1000 delay-${i * 200} ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
-              >
+          <div className="space-y-10">
+            {experienceTimeline.map((item) => (
+              <div key={`${item.role}-${item.period}`} className="relative">
                 <div className="exp-dot" />
-
-                <div className="grid lg:grid-cols-[200px_1fr] gap-4 lg:gap-12">
-                  <div className="pt-2">
-                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">{item.period}</p>
-                    <span className={`inline-block mt-3 px-3 py-1 rounded-md text-[8px] font-black uppercase tracking-widest ${item.type === 'client' ? 'bg-green-500/10 text-green-500' : item.type === 'engineering' ? 'bg-primary/10 text-primary' : 'bg-slate-500/10 text-slate-500'}`}>
-                      {item.type} focused
+                <div className="grid gap-4 lg:grid-cols-[220px_1fr] lg:gap-10">
+                  <div className="pt-1">
+                    <p className="text-[10px] font-black uppercase tracking-[0.24em] text-slate-500">{item.period}</p>
+                    <span
+                      className={`mt-3 inline-flex rounded-full px-3 py-1 text-[9px] font-black uppercase tracking-[0.24em] ${
+                        item.type === 'engineering'
+                          ? 'bg-primary/10 text-primary'
+                          : item.type === 'client'
+                            ? 'bg-emerald-500/10 text-emerald-300'
+                            : 'bg-white/10 text-slate-300'
+                      }`}
+                    >
+                      {item.type}
                     </span>
                   </div>
 
-                  <div className="exp-card rounded-[2rem] p-8 lg:p-12">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                  <div className="exp-card rounded-[2rem] p-6 lg:p-8">
+                    <div className="mb-5 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                       <div>
-                        <h4 className="text-xl lg:text-3xl font-black text-slate-900 dark:text-white tracking-tight leading-none mb-2">{item.role}</h4>
-                        <p className="text-sm font-bold text-primary italic opacity-80">{item.company}</p>
+                        <h3 className="text-xl font-black tracking-tight text-white lg:text-2xl">{item.role}</h3>
+                        <p className="mt-2 text-sm font-bold text-primary">
+                          {item.company} • {item.meta}
+                        </p>
                       </div>
-                      <div className="flex gap-2">
-                        {item.tags.map(tag => (
-                          <span key={tag} className="text-[8px] font-black uppercase tracking-widest border border-slate-200 dark:border-white/10 px-3 py-1.5 rounded-lg opacity-60">
+                      <div className="flex flex-wrap gap-2">
+                        {item.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-xl border border-white/10 px-3 py-2 text-[9px] font-black uppercase tracking-[0.22em] text-slate-300"
+                          >
                             {tag}
                           </span>
                         ))}
                       </div>
                     </div>
-
-                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed max-w-2xl font-medium">
-                      {item.desc}
-                    </p>
+                    <ul className="space-y-3">
+                      {item.bullets.map((bullet) => (
+                        <li key={bullet} className="flex items-start gap-3 text-sm leading-7 text-slate-400">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -102,6 +82,4 @@ const Experience: React.FC = () => {
       </div>
     </section>
   );
-};
-
-export default Experience;
+}

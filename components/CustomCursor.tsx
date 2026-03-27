@@ -1,96 +1,91 @@
-import React, { useEffect, useRef, useState } from 'react';
-import './../cursor.css';
+'use client';
 
-const CustomCursor: React.FC = () => {
+// CustomCursor keeps the site-specific pointer treatment on non-touch devices.
+import { useEffect, useRef, useState } from 'react';
+
+export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const followerRef = useRef<HTMLDivElement>(null);
-
-  const mousePos = useRef({ x: 0, y: 0 });
-  const dotPos = useRef({ x: 0, y: 0 });
-  const followerPos = useRef({ x: 0, y: 0 });
-
-  const [isHovering, setIsHovering] = useState(false);
-  const [isClicking, setIsClicking] = useState(false);
-  const [isTextMode, setIsTextMode] = useState(false);
-
-  const isTouchDevice = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
+  const mouse = useRef({ x: 0, y: 0 });
+  const dot = useRef({ x: 0, y: 0 });
+  const follower = useRef({ x: 0, y: 0 });
+  const [enabled, setEnabled] = useState(false);
+  const [hovering, setHovering] = useState(false);
+  const [clicking, setClicking] = useState(false);
+  const [textMode, setTextMode] = useState(false);
 
   useEffect(() => {
-    if (isTouchDevice) return;
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    if (isTouch) {
+      setEnabled(false);
+      return;
+    }
 
-    // Add class to hide real cursor
+    setEnabled(true);
     document.documentElement.classList.add('custom-cursor-active');
 
-    const onMouseMove = (e: MouseEvent) => {
-      mousePos.current = { x: e.clientX, y: e.clientY };
-    };
+    function onMove(event: MouseEvent) {
+      mouse.current = { x: event.clientX, y: event.clientY };
+    }
 
-    const onMouseDown = () => setIsClicking(true);
-    const onMouseUp = () => setIsClicking(false);
+    function onDown() {
+      setClicking(true);
+    }
 
-    const onMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
+    function onUp() {
+      setClicking(false);
+    }
 
-      // Interactive elements
-      const isInteractive = target.closest('a, button, [role="button"], .clickable');
-      setIsHovering(!!isInteractive);
+    function onOver(event: MouseEvent) {
+      const target = event.target as HTMLElement;
+      setHovering(Boolean(target.closest('a, button, [role="button"], .clickable')));
+      setTextMode(Boolean(target.closest('input, textarea, [contenteditable="true"], select')));
+    }
 
-      // Text elements
-      const isText = target.closest('input, textarea, [contenteditable="true"]');
-      setIsTextMode(!!isText);
-    };
-
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mousedown', onMouseDown);
-    window.addEventListener('mouseup', onMouseUp);
-    window.addEventListener('mouseover', onMouseOver);
-
-    // Animation loop
-    let requestRef: number;
-
+    let frame = 0;
     const animate = () => {
-      // Linear interpolation (lerp) for smooth movement
-      // Dot follows quickly
-      dotPos.current.x += (mousePos.current.x - dotPos.current.x) * 0.25;
-      dotPos.current.y += (mousePos.current.y - dotPos.current.y) * 0.25;
-
-      // Follower follows with more lag
-      followerPos.current.x += (mousePos.current.x - followerPos.current.x) * 0.12;
-      followerPos.current.y += (mousePos.current.y - followerPos.current.y) * 0.12;
+      dot.current.x += (mouse.current.x - dot.current.x) * 0.25;
+      dot.current.y += (mouse.current.y - dot.current.y) * 0.25;
+      follower.current.x += (mouse.current.x - follower.current.x) * 0.12;
+      follower.current.y += (mouse.current.y - follower.current.y) * 0.12;
 
       if (dotRef.current) {
-        dotRef.current.style.left = `${dotPos.current.x}px`;
-        dotRef.current.style.top = `${dotPos.current.y}px`;
+        dotRef.current.style.left = `${dot.current.x}px`;
+        dotRef.current.style.top = `${dot.current.y}px`;
       }
 
       if (followerRef.current) {
-        followerRef.current.style.left = `${followerPos.current.x}px`;
-        followerRef.current.style.top = `${followerPos.current.y}px`;
+        followerRef.current.style.left = `${follower.current.x}px`;
+        followerRef.current.style.top = `${follower.current.y}px`;
       }
 
-      requestRef = requestAnimationFrame(animate);
+      frame = requestAnimationFrame(animate);
     };
 
-    requestRef = requestAnimationFrame(animate);
+    frame = requestAnimationFrame(animate);
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mousedown', onDown);
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('mouseover', onOver);
 
     return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mousedown', onMouseDown);
-      window.removeEventListener('mouseup', onMouseUp);
-      window.removeEventListener('mouseover', onMouseOver);
+      cancelAnimationFrame(frame);
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mousedown', onDown);
+      window.removeEventListener('mouseup', onUp);
+      window.removeEventListener('mouseover', onOver);
       document.documentElement.classList.remove('custom-cursor-active');
-      cancelAnimationFrame(requestRef);
     };
-  }, [isTouchDevice]);
+  }, []);
 
-  if (isTouchDevice) return null;
+  if (!enabled) {
+    return null;
+  }
 
   return (
-    <div className={`cursor-wrapper ${isHovering ? 'hovering' : ''} ${isClicking ? 'clicking' : ''} ${isTextMode ? 'text-mode' : ''}`}>
+    <div className={`cursor-wrapper ${hovering ? 'hovering' : ''} ${clicking ? 'clicking' : ''} ${textMode ? 'text-mode' : ''}`}>
       <div ref={dotRef} className="cursor-dot" />
       <div ref={followerRef} className="cursor-follower" />
     </div>
   );
-};
-
-export default CustomCursor;
+}
