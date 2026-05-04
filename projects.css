@@ -1,4 +1,4 @@
-/* Infinite Auto-Scrolling Projects */
+/* Projects — Clean Light Theme */
 .projects-marquee-container {
   width: 100%;
   overflow: hidden;
@@ -29,14 +29,14 @@
 }
 
 .project-card-premium {
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   transform-origin: center;
 }
 
 .projects-marquee-content:hover .project-card-premium:not(:hover) {
-  opacity: 0.4;
-  filter: blur(2px) grayscale(0.5);
-  scale: 0.95;
+  opacity: 0.5;
+  filter: grayscale(0.3);
+  scale: 0.97;
 }
 
 .project-card-premium:hover {

@@ -1,22 +1,20 @@
-// Root layout loads fonts, metadata, global styles, and Vercel Analytics for the portfolio.
+// Root layout — Space Grotesk + Inter fonts to match Jobs24x visual identity.
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
-import { JetBrains_Mono, Manrope, Sora } from 'next/font/google';
+import { Space_Grotesk, Inter } from 'next/font/google';
 import './globals.css';
 
-const sora = Sora({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-display-google',
+  variable: '--font-space',
+  display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
 });
 
-const manrope = Manrope({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-sans-google',
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
+  variable: '--font-inter',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -48,7 +46,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sora.variable} ${manrope.variable} ${jetbrainsMono.variable} dark`}
+      className={`${spaceGrotesk.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -60,7 +58,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
       </head>
-      <body className="bg-[#0d0f14] font-sans text-slate-100 antialiased">
+      <body className="bg-white font-sans text-[#374151] antialiased">
         {children}
         <Analytics />
       </body>

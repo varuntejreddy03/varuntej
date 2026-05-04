@@ -1,231 +1,48 @@
 'use client';
 
-// ContactForm submits project inquiries through the Brevo-backed API route with terminal-style feedback.
 import { useMemo, useState } from 'react';
 
-type FormState = {
-  fullName: string;
-  company: string;
-  email: string;
-  projectType: string;
-  budget: string;
-  message: string;
-  website: string;
-};
-
-const initialState: FormState = {
-  fullName: '',
-  company: '',
-  email: '',
-  projectType: 'Website',
-  budget: '',
-  message: '',
-  website: '',
-};
+type FormState = { fullName: string; company: string; email: string; projectType: string; budget: string; message: string; website: string; };
+const init: FormState = { fullName: '', company: '', email: '', projectType: 'Website', budget: '', message: '', website: '' };
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState<FormState>(initialState);
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [notice, setNotice] = useState<string>('');
+  const [f, setF] = useState<FormState>(init);
+  const [status, setStatus] = useState<'idle'|'loading'|'success'|'error'>('idle');
+  const [notice, setNotice] = useState('');
+  const msg = useMemo(() => status==='success'?'✓ Sent! Response within 24h.':status==='error'?(notice||'Error.'):status==='loading'?'Sending...':'', [notice,status]);
+  const chg = (e: React.ChangeEvent<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>) => setF(c=>({...c,[e.target.name]:e.target.value}));
+  const ic = 'w-full rounded-lg border border-[#E5E7EB] bg-[#FAFBFC] px-4 py-3 text-sm text-[#111827] outline-none transition-all placeholder:text-[#D1D5DB] focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/10';
 
-  const terminalMessage = useMemo(() => {
-    if (status === 'success') {
-      return '✓ Message transmitted. Expected response: < 24h';
-    }
-
-    if (status === 'error') {
-      return notice || 'Transmission failed. Re-open the channel and retry.';
-    }
-
-    if (status === 'loading') {
-      return 'Encrypting payload and opening relay...';
-    }
-
-    return '$ transmit --project-inquiry';
-  }, [notice, status]);
-
-  function handleChange(
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
-  ) {
-    setFormData((current) => ({
-      ...current,
-      [event.target.name]: event.target.value,
-    }));
-  }
-
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setStatus('loading');
-    setNotice('');
-
+  async function sub(e: React.FormEvent) {
+    e.preventDefault(); setStatus('loading'); setNotice('');
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const payload = (await response.json()) as { message?: string; success?: boolean };
-
-      if (!response.ok || !payload.success) {
-        throw new Error(payload.message || 'Message delivery failed.');
-      }
-
-      setStatus('success');
-      setFormData(initialState);
-    } catch (error) {
-      setStatus('error');
-      setNotice(error instanceof Error ? error.message : 'Message delivery failed.');
-    }
+      const r = await fetch('/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(f) });
+      const d = (await r.json()) as {message?:string;success?:boolean};
+      if(!r.ok||!d.success) throw new Error(d.message||'Failed');
+      setStatus('success'); setF(init);
+    } catch(err) { setStatus('error'); setNotice(err instanceof Error?err.message:'Failed'); }
   }
 
   return (
-    <div className="contact-terminal rounded-[2.5rem] overflow-hidden">
-      <div className="terminal-header flex items-center justify-between px-6 py-4 sm:px-8">
-        <div className="terminal-dots">
-          <span />
-          <span />
-          <span />
-        </div>
-        <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-slate-500">
-          /api/contact
-        </span>
+    <div className="rounded-xl border border-[#E5E7EB] bg-white overflow-hidden">
+      <div className="border-b border-[#F3F4F6] bg-[#FAFBFC] px-5 py-3.5">
+        <p className="text-sm font-semibold text-[#111827]">Send a Message</p>
       </div>
-
-      <div className="border-b border-white/5 bg-[#0f1727] px-6 py-4 font-mono text-[11px] text-emerald-300 sm:px-8">
-        {status === 'loading' ? (
-          <span className="inline-flex items-center gap-2">
-            <span className="h-3 w-3 animate-spin rounded-full border-2 border-emerald-300/30 border-t-emerald-300" />
-            {terminalMessage}
-          </span>
-        ) : (
-          terminalMessage
-        )}
-      </div>
-
-      <form className="space-y-6 p-6 sm:p-8 lg:p-10" onSubmit={handleSubmit}>
-        {status === 'success' ? (
-          <div className="terminal-toast-enter rounded-2xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm font-bold text-emerald-200">
-            ✓ Message transmitted. Expected response: &lt; 24h
-          </div>
-        ) : null}
-        {status === 'error' ? (
-          <div className="terminal-toast-enter rounded-2xl border border-rose-500/20 bg-rose-500/10 px-4 py-3 text-sm font-bold text-rose-200">
-            {notice}
-          </div>
-        ) : null}
-
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="space-y-2">
-            <label className="text-[10px] font-black uppercase tracking-[0.28em] text-slate-400">
-              Full Name
-            </label>
-            <input
-              className="glow-input w-full rounded-2xl border border-transparent bg-white/5 px-5 py-4 text-sm font-semibold text-white outline-none transition-all focus:border-primary"
-              name="fullName"
-              placeholder="Varun-ready contact"
-              value={formData.fullName}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="space-y-2">
-            <label className="text-[10px] font-black uppercase tracking-[0.28em] text-slate-400">
-              Company
-            </label>
-            <input
-              className="glow-input w-full rounded-2xl border border-transparent bg-white/5 px-5 py-4 text-sm font-semibold text-white outline-none transition-all focus:border-primary"
-              name="company"
-              placeholder="Company / team"
-              value={formData.company}
-              onChange={handleChange}
-              required
-            />
-          </div>
+      {msg?<div className={`px-5 py-2.5 text-sm font-medium ${status==='success'?'bg-[#ECFDF5] text-[#059669]':status==='error'?'bg-[#FEF2F2] text-[#DC2626]':'bg-[#EEF2FF] text-primary'}`}>{msg}</div>:null}
+      <form className="space-y-4 p-5" onSubmit={sub}>
+        <div className="grid gap-4 md:grid-cols-2">
+          <div><label className="mb-1.5 block text-xs font-semibold text-[#374151]">Full Name</label><input className={ic} name="fullName" placeholder="Your name" value={f.fullName} onChange={chg} required/></div>
+          <div><label className="mb-1.5 block text-xs font-semibold text-[#374151]">Company</label><input className={ic} name="company" placeholder="Company" value={f.company} onChange={chg} required/></div>
         </div>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="space-y-2">
-            <label className="text-[10px] font-black uppercase tracking-[0.28em] text-slate-400">
-              Email
-            </label>
-            <input
-              className="glow-input w-full rounded-2xl border border-transparent bg-white/5 px-5 py-4 text-sm font-semibold text-white outline-none transition-all focus:border-primary"
-              name="email"
-              type="email"
-              placeholder="team@company.com"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="space-y-2">
-            <label className="text-[10px] font-black uppercase tracking-[0.28em] text-slate-400">
-              Project Type
-            </label>
-            <select
-              className="glow-input w-full rounded-2xl border border-transparent bg-white/5 px-5 py-4 text-sm font-semibold text-white outline-none transition-all focus:border-primary"
-              name="projectType"
-              value={formData.projectType}
-              onChange={handleChange}
-            >
-              <option value="Website">Website</option>
-              <option value="AI System">AI System</option>
-              <option value="Full Stack App">Full Stack App</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          <div><label className="mb-1.5 block text-xs font-semibold text-[#374151]">Email</label><input className={ic} name="email" type="email" placeholder="team@co.com" value={f.email} onChange={chg} required/></div>
+          <div><label className="mb-1.5 block text-xs font-semibold text-[#374151]">Project Type</label><select className={ic} name="projectType" value={f.projectType} onChange={chg}><option>Website</option><option>AI System</option><option>Full Stack App</option><option>Other</option></select></div>
         </div>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="space-y-2">
-            <label className="text-[10px] font-black uppercase tracking-[0.28em] text-slate-400">
-              Budget Range
-            </label>
-            <input
-              className="glow-input w-full rounded-2xl border border-transparent bg-white/5 px-5 py-4 text-sm font-semibold text-white outline-none transition-all focus:border-primary"
-              name="budget"
-              placeholder="Optional"
-              value={formData.budget}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="hidden">
-            <label htmlFor="website">Website</label>
-            <input
-              id="website"
-              name="website"
-              tabIndex={-1}
-              autoComplete="off"
-              value={formData.website}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          <label className="text-[10px] font-black uppercase tracking-[0.28em] text-slate-400">
-            Message
-          </label>
-          <textarea
-            className="glow-input min-h-[170px] w-full resize-none rounded-2xl border border-transparent bg-white/5 px-5 py-4 text-sm font-semibold text-white outline-none transition-all focus:border-primary"
-            name="message"
-            placeholder="Share the product scope, timeline, and the outcome you need."
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <button
-          type="submit"
-          disabled={status === 'loading'}
-          className="btn-contact-main flex w-full items-center justify-center gap-3 rounded-2xl py-5 text-[10px] font-black uppercase tracking-[0.36em]"
-        >
-          {status === 'loading' ? 'Transmitting' : 'Send Message'}
-          <span className="material-symbols-outlined text-lg">arrow_outward</span>
+        <div><label className="mb-1.5 block text-xs font-semibold text-[#374151]">Budget</label><input className={ic} name="budget" placeholder="Optional" value={f.budget} onChange={chg}/></div>
+        <div className="hidden"><input name="website" tabIndex={-1} autoComplete="off" value={f.website} onChange={chg}/></div>
+        <div><label className="mb-1.5 block text-xs font-semibold text-[#374151]">Message</label><textarea className={`${ic} min-h-[120px] resize-none`} name="message" placeholder="Scope, timeline, outcome." value={f.message} onChange={chg} required/></div>
+        <button type="submit" disabled={status==='loading'} className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-sm font-semibold text-white hover:bg-[#1D4ED8] disabled:opacity-60">
+          {status==='loading'?'Sending...':'Send Message'}<span className="material-symbols-outlined text-[16px]">arrow_forward</span>
         </button>
       </form>
     </div>

@@ -1,6 +1,6 @@
 'use client';
 
-// ResumeButton tracks resume views/downloads and keeps the public counter badge in sync.
+// ResumeButton — clean light theme resume action button.
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -78,8 +78,8 @@ export default function ResumeButton({
   }
 
   const buttonClassName = [
-    'inline-flex items-center gap-3 rounded-2xl border border-white/10 px-6 py-4 text-[10px] font-black uppercase tracking-[0.28em] transition-all',
-    busy ? 'cursor-wait opacity-80' : 'hover:-translate-y-0.5 hover:border-primary/40 hover:text-white',
+    'inline-flex items-center gap-2 rounded-xl border px-5 py-3 text-sm font-semibold transition-all',
+    busy ? 'cursor-wait opacity-80' : 'hover:-translate-y-0.5',
     className,
   ]
     .filter(Boolean)
@@ -93,10 +93,10 @@ export default function ResumeButton({
         className={buttonClassName}
       >
         <span>{label}</span>
-        <span className="material-symbols-outlined text-base">{icon}</span>
+        <span className="material-symbols-outlined ase" style={{ color: '#64748B' }}>{icon}</span>
       </button>
       {showCount ? (
-        <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.24em] text-slate-400">
+        <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium " style={{ color: '#64748B' }}>
           Downloaded {count ?? '...'} times
         </span>
       ) : null}

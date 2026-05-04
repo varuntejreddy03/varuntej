@@ -21,7 +21,7 @@ export default function ResumeContent() {
           href="/"
           className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-bold text-slate-200"
         >
-          <span className="material-symbols-outlined text-base">arrow_back</span>
+          <span className="material-symbols-outlined ase" style={{ color: '#64748B' }}>arrow_back</span>
           Portfolio
         </a>
         <ResumeButton
@@ -43,7 +43,7 @@ export default function ResumeContent() {
         <div className="grid lg:grid-cols-[320px_1fr]">
           <aside className="border-r border-white/5 bg-[#111a2a] p-8">
             <div>
-              <p className="text-3xl font-black tracking-tight text-white">{owner.name}</p>
+              <p className="xl font-black tracking-tight text-white" style={{ color: '#64748B' }}>{owner.name}</p>
               <p className="mt-2 text-sm font-bold text-primary">{owner.role}</p>
             </div>
 
@@ -64,15 +64,15 @@ export default function ResumeContent() {
             </div>
 
             <div className="mt-10">
-              <p className="mb-4 text-[10px] font-black uppercase tracking-[0.28em] text-slate-500">Education</p>
+              <p className="mb-4 text-[10px] font-black uppercase tracking-[0.28em] " style={{ color: '#64748B' }}>Education</p>
               <p className="text-sm font-bold text-white">{owner.education}</p>
-              <p className="mt-2 text-sm text-slate-400">{owner.educationMeta}</p>
+              <p className="mt-2 text-sm " style={{ color: '#9CA3AF' }}>{owner.educationMeta}</p>
             </div>
 
             <div className="mt-10 space-y-6">
               {skillCategories.map((category) => (
                 <div key={category.name}>
-                  <p className="mb-3 text-[10px] font-black uppercase tracking-[0.24em] text-slate-500">
+                  <p className="mb-3 text-[10px] font-black uppercase tracking-[0.24em] " style={{ color: '#64748B' }}>
                     {category.name}
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -92,7 +92,7 @@ export default function ResumeContent() {
 
           <main className="p-8 lg:p-10">
             <section>
-              <p className="text-base leading-8 text-slate-400">
+              <p className="text-sm leading-8 " style={{ color: '#64748B' }}>
                 Full Stack Developer + AI Engineer with production experience across client delivery, real-time systems, and RAG backends. Built 15+ live sites, delivered 4 end-to-end freelance projects, and shipped AI systems with FastAPI, FAISS, Docker, and AWS.
               </p>
             </section>
@@ -109,11 +109,11 @@ export default function ResumeContent() {
                           {item.company} • {item.meta}
                         </p>
                       </div>
-                      <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">{item.period}</p>
+                      <p className="text-xs font-bold uppercase tracking-[0.18em] " style={{ color: '#64748B' }}>{item.period}</p>
                     </div>
                     <ul className="mt-4 space-y-2">
                       {item.bullets.map((bullet) => (
-                        <li key={bullet} className="text-sm leading-7 text-slate-400">
+                        <li key={bullet} className="text-sm leading-7 " style={{ color: '#9CA3AF' }}>
                           • {bullet}
                         </li>
                       ))}
@@ -129,7 +129,7 @@ export default function ResumeContent() {
                 {projectItems.map((project) => (
                   <div key={project.id} className="rounded-[1.8rem] border border-white/10 bg-white/5 p-5">
                     <p className="text-lg font-black text-white">{project.title}</p>
-                    <p className="mt-3 text-sm leading-7 text-slate-400">{project.description}</p>
+                    <p className="mt-3 text-sm leading-7 " style={{ color: '#9CA3AF' }}>{project.description}</p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {project.tags.slice(0, 5).map((tag) => (
                         <span

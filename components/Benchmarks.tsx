@@ -1,6 +1,6 @@
 'use client';
 
-// Benchmarks combines the real proof metrics with the live GitHub stats widget.
+// Benchmarks — Jobs24x card style evidence-of-work.
 import GitHubStats from '@/components/GitHubStats';
 import { benchmarkCards } from '@/lib/content';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -9,55 +9,36 @@ export default function Benchmarks() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="benchmarks" className="border-t border-white/5 px-4 py-14 sm:px-0 lg:py-24">
+    <section id="benchmarks" className="py-20 lg:py-24">
       <div ref={ref} className={isVisible ? 'section-fade is-visible' : 'section-fade'}>
-        <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="mb-4 text-[10px] font-black uppercase tracking-[0.42em] text-primary">Evidence of Work</p>
-            <h2 className="text-3xl font-black tracking-tight text-white sm:text-5xl">
-              Numbers tied to real delivery.
-            </h2>
-          </div>
-          <div className="inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
-            <span className="bench-header-badge">Live Audit</span>
-            <span className="text-[10px] font-black uppercase tracking-[0.24em] text-slate-500">
-              Keep the Lighthouse claim honest
-            </span>
-          </div>
+        <div className="mb-10 max-w-2xl">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.1em] text-primary">Evidence of Work</p>
+          <h2 className="font-heading text-[28px] font-bold leading-[1.2] tracking-tight text-[#111827] sm:text-[36px]">
+            Numbers tied to real delivery.
+          </h2>
         </div>
 
-        <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
-          <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-5 xl:grid-cols-[1.2fr_0.8fr]">
+          <div className="grid gap-4 md:grid-cols-3">
             {benchmarkCards.map((item) => (
-              <div key={item.title} className="benchmark-card relative overflow-hidden rounded-[2.4rem] p-7">
-                <div className="scanline-effect" />
-                <div className="relative z-10">
-                  <div className="mb-8 flex items-center justify-between">
-                    <span className="text-[10px] font-black uppercase tracking-[0.24em] text-primary">
-                      {item.category}
-                    </span>
-                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_#34d399]" />
-                  </div>
-                  <h3 className="text-2xl font-black tracking-tight text-white">{item.title}</h3>
-                  <div className="mt-5 flex items-end gap-3">
-                    <span className="impact-number">{item.impact}</span>
-                    <span className="pb-1 text-[10px] font-black uppercase tracking-[0.22em] text-slate-500">
-                      {item.label}
-                    </span>
-                  </div>
-                  <div className="mt-7 space-y-4">
-                    {item.stats.map((stat) => (
-                      <div key={stat.name} className="flex items-center justify-between gap-4 text-xs">
-                        <span className="font-bold uppercase tracking-[0.18em] text-slate-500">{stat.name}</span>
-                        <div className="h-px flex-1 bg-white/10" />
-                        <span className="font-mono font-bold text-primary">{stat.val}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="mt-7 border-l border-primary/20 pl-4 text-sm leading-7 text-slate-400">
-                    {item.desc}
-                  </p>
+              <div key={item.title} className="rounded-xl border border-[#E5E7EB] bg-white p-5 transition-all hover:shadow-card">
+                <p className="mb-4 text-[11px] font-semibold uppercase tracking-wider text-primary">{item.category}</p>
+                <h3 className="font-heading text-[17px] font-bold text-[#111827]">{item.title}</h3>
+                <div className="mt-3 flex items-end gap-2">
+                  <span className="font-heading text-[28px] font-bold tracking-tight text-[#111827]">{item.impact}</span>
+                  <span className="pb-1 text-[11px] font-medium uppercase tracking-wider text-[muted-foreground]">{item.label}</span>
                 </div>
+                <div className="mt-4 space-y-2">
+                  {item.stats.map((stat) => (
+                    <div key={stat.name} className="flex items-center justify-between text-xs">
+                      <span className="text-[muted-foreground]">{stat.name}</span>
+                      <span className="font-semibold text-primary">{stat.val}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-4 border-l-2 border-[#E0E7FF] pl-3 text-sm leading-[1.6] text-[muted-foreground]">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>

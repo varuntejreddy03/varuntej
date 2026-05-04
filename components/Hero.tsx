@@ -1,13 +1,11 @@
 'use client';
 
-// Hero upgrades the headline, resume CTA, visitor pulse, and live status without changing the dark engineering aesthetic.
+// Jobs24x-exact hero: badge → large 2-line heading (line 2 blue) → gray subtitle → 2 buttons → stat cards.
 import { useEffect, useState } from 'react';
 import type { RefObject } from 'react';
 import { useMagnetic } from '@/hooks/useMagnetic';
-import LiveStatus from '@/components/LiveStatus';
-import ResumeButton from '@/components/ResumeButton';
 import VisitorPulse from '@/components/VisitorPulse';
-import { heroCycleWords, heroStats, owner } from '@/lib/content';
+import { heroCycleWords, owner } from '@/lib/content';
 
 export default function Hero() {
   const projectBtnRef = useMagnetic() as RefObject<HTMLAnchorElement>;
@@ -16,142 +14,91 @@ export default function Hero() {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setActiveWord((current) => (current + 1) % heroCycleWords.length);
-    }, 1900);
+    }, 2200);
 
     return () => window.clearInterval(timer);
   }, []);
 
-  const focusAreas = [
-    {
-      title: 'Frontend Delivery',
-      icon: 'web',
-      desc: '18+ production launches with responsive, conversion-ready UI systems.',
-    },
-    {
-      title: 'Backend + AI',
-      icon: 'memory',
-      desc: 'RAG pipelines, FastAPI services, JWT auth, RBAC, and vector search.',
-    },
-    {
-      title: 'Cloud Deploy',
-      icon: 'cloud_upload',
-      desc: 'Dockerized releases on AWS, Vercel, Netlify, and CI/CD pipelines.',
-    },
+  const stats = [
+    { value: '18+', label: 'Projects Shipped', icon: 'visibility' },
+    { value: '10+', label: 'Technologies Used', icon: 'description' },
+    { value: '19', label: 'Clients Served', icon: 'language' },
+    { value: '0', label: 'Critical Bugs', icon: 'group' },
   ];
 
   return (
     <section
       id="home"
-      className="relative flex min-h-[94vh] items-center overflow-hidden px-4 pt-28 sm:px-0 lg:pt-32"
+      className="relative bg-white pb-0 pt-[100px] sm:pt-[120px]"
     >
-      <div className="hero-grid-pattern opacity-60" />
-      <div className="hero-ambient-orb orb-1 opacity-25" />
-      <div className="hero-ambient-orb orb-2 opacity-20" />
+      {/* Hero content */}
+      <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
+        <div className="flex flex-col items-center text-center">
 
-      <div className="relative z-10 grid w-full gap-10 lg:grid-cols-[1.28fr_0.92fr] lg:items-center lg:gap-16">
-        <div className="max-w-3xl">
-          <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-[9px] font-black uppercase tracking-[0.34em] text-primary">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-            </span>
-            Open to Graduate Roles 2027 | Full Stack Intern @ StaffArc
+          {/* Badge — exact Jobs24x style */}
+          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#E0E7FF] bg-[#EEF2FF] px-5 py-2 text-sm font-medium text-primary">
+            <span className="text-sm">✦</span>
+            Full Stack Developer + AI Engineer
           </div>
 
-          <p className="mb-5 text-sm font-black uppercase tracking-[0.28em] text-slate-400">
-            Hello, I&apos;m {owner.name}
-          </p>
-
-          <h1 className="text-4xl font-black leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl">
-            Building{' '}
-            <span className="inline-flex min-w-[1ch] rounded-xl bg-primary px-3 py-1 text-white shadow-lg shadow-primary/25 transition-all duration-500">
-              {heroCycleWords[activeWord]}
-            </span>
+          {/* Headline — Jobs24x exact: line 1 black, line 2 blue */}
+          <h1 className="max-w-[800px] font-heading text-[36px] font-bold leading-[1.15] tracking-[-0.02em] text-[#111827] sm:text-[48px] lg:text-[56px]">
+            Building Scalable Web Apps &amp;
             <br />
-            Web Solutions
+            <span className="text-primary">
+              {heroCycleWords[activeWord]} Solutions
+            </span>
           </h1>
 
-          <p className="mt-7 max-w-2xl text-base leading-8 text-slate-400 sm:text-lg">
-            Full Stack Developer + AI Engineer based in Hyderabad, shipping client systems, real-time apps, and RAG pipelines with React, Next.js, FastAPI, Supabase, and AWS.
+          {/* Subtitle — Jobs24x gray paragraph */}
+          <p className="mt-5 max-w-[640px] text-sm leading-[1.7] sm:text-base" style={{ color: '#64748B' }}>
+            Full Stack Developer + AI Engineer based in Hyderabad, shipping
+            client systems, real-time apps, and RAG pipelines with React,
+            Next.js, FastAPI, Supabase, and AWS.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-5">
-            {heroStats.map((stat) => (
-              <div key={stat.label} className="rounded-[1.4rem] border border-white/10 bg-white/5 px-5 py-4">
-                <p className="text-2xl font-black tracking-tight text-white sm:text-3xl">{stat.value}</p>
-                <p className="mt-2 text-[9px] font-black uppercase tracking-[0.28em] text-slate-500">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 flex flex-wrap items-start gap-4">
+          {/* CTA buttons — Jobs24x exact: blue filled + white outlined */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
               ref={projectBtnRef}
               href="#projects"
-              className="inline-flex items-center gap-3 rounded-2xl bg-primary px-7 py-4 text-[10px] font-black uppercase tracking-[0.3em] text-white shadow-xl shadow-primary/25 transition-all hover:-translate-y-0.5 hover:shadow-primary/40"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-[#1D4ED8] hover:shadow-lg"
             >
-              Explore Projects
-              <span className="material-symbols-outlined text-lg">north_east</span>
+              Browse Projects
+              <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
             </a>
-            <ResumeButton
-              label="View Resume"
-              className="bg-white/5 px-7 py-4 text-[10px] text-slate-100"
-              icon="download"
-            />
+            <a
+              href="#contact"
+              className="inline-flex items-center rounded-lg border border-[#D1D5DB] bg-white px-6 py-3 text-sm font-semibold text-[#374151] transition-all hover:border-[#9CA3AF] hover:shadow-sm"
+            >
+              View Resume
+            </a>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          {/* Visitor pulse */}
+          <div className="mt-6">
             <VisitorPulse />
-            <a
-              href={`mailto:${owner.email}`}
-              className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.28em] text-slate-300 transition-colors hover:border-primary/30"
-            >
-              <span className="material-symbols-outlined text-sm text-primary">mail</span>
-              {owner.email}
-            </a>
           </div>
         </div>
 
-        <div className="relative">
-          <div className="absolute -inset-4 rounded-[3rem] bg-primary/10 blur-3xl" />
-          <div className="premium-glass relative rounded-[2.4rem] border border-white/10 bg-[#101723]/80 p-6 sm:p-8">
-            <div className="mb-7 flex items-center justify-between">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.36em] text-slate-500">Service Stack</h3>
-              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_14px_#34d399]" />
-            </div>
-
-            <div className="space-y-4">
-              {focusAreas.map((item) => (
-                <div
-                  key={item.title}
-                  className="group/item flex items-start gap-4 rounded-[1.4rem] border border-white/5 bg-white/[0.03] p-4 transition-all hover:border-primary/20 hover:bg-white/[0.05]"
-                >
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all group-hover/item:bg-primary group-hover/item:text-white">
-                    <span className="material-symbols-outlined">{item.icon}</span>
-                  </div>
-                  <div>
-                    <h4 className="text-[11px] font-black uppercase tracking-[0.22em] text-white">{item.title}</h4>
-                    <p className="mt-2 text-xs leading-6 text-slate-400">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-6 grid gap-4">
-              <LiveStatus />
-              <div className="rounded-[1.8rem] bg-white px-5 py-4 text-slate-900">
-                <p className="text-[9px] font-black uppercase tracking-[0.28em] text-slate-500">Response Time</p>
-                <div className="mt-2 flex items-center justify-between">
-                  <p className="font-mono text-sm font-bold">&lt; 24 hours</p>
-                  <a href="#contact" className="rounded-full bg-primary p-2 text-white transition-transform hover:scale-110">
-                    <span className="material-symbols-outlined text-lg">mail</span>
-                  </a>
-                </div>
+        {/* Stats cards — Jobs24x exact: centered icon, big number, small label */}
+        <div className="mx-auto mt-16 grid max-w-[960px] grid-cols-2 gap-4 pb-12 md:grid-cols-4 md:gap-5">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="flex flex-col items-center rounded-2xl border border-[#F3F4F6] bg-[#FAFBFC] px-4 py-7 text-center transition-all hover:border-[#E5E7EB] hover:shadow-card"
+            >
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#EEF2FF] text-primary">
+                <span className="material-symbols-outlined text-[20px]">{stat.icon}</span>
               </div>
+              <p className="font-heading text-[28px] font-bold tracking-tight text-[#111827] sm:text-[32px]">
+                {stat.value}
+              </p>
+              <p className="mt-1 text-xs font-medium" style={{ color: '#64748B' }}>
+                {stat.label}
+              </p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

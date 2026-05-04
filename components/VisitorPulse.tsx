@@ -1,6 +1,6 @@
 'use client';
 
-// VisitorPulse records a visit once per session and shows the current weekly visitor count.
+// VisitorPulse — clean light pill style.
 import { useEffect, useState } from 'react';
 
 export default function VisitorPulse() {
@@ -36,7 +36,7 @@ export default function VisitorPulse() {
   }, []);
 
   return (
-    <div className="inline-flex items-center gap-3 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.28em] text-slate-300">
+    <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-medium text-gray-600 shadow-card">
       <span className="relative flex h-2 w-2">
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
         <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />

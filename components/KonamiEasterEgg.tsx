@@ -1,6 +1,6 @@
 'use client';
 
-// KonamiEasterEgg listens for the Konami code and triggers a terminal overlay plus confetti.
+// KonamiEasterEgg — fun easter egg with clean light styling.
 import { useEffect, useState } from 'react';
 
 const KONAMI = [
@@ -56,9 +56,9 @@ export default function KonamiEasterEgg() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[120] flex items-end justify-center p-6">
-      <div className="konami-shell w-full max-w-2xl rounded-[2rem] border border-primary/20 px-6 py-5 shadow-[0_40px_100px_-30px_rgba(37,99,235,0.55)]">
-        <p className="font-mono text-xs uppercase tracking-[0.28em] text-emerald-300">
-          sudo hire varun --urgency=high
+      <div className="w-full max-w-2xl rounded-2xl border border-primary/20 bg-white px-6 py-5 shadow-card-lg">
+        <p className="text-sm font-bold text-primary">
+          🎉 You found the easter egg! Hire Varun — he ships clean.
         </p>
       </div>
     </div>
