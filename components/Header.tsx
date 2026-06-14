@@ -30,7 +30,7 @@ function Header() {
           <a href="#home" className="flex items-center gap-2.5">
             <Logo />
             <span className="font-heading text-[17px] font-bold tracking-tight text-[#111827]">
-              Varun Tej<span className="text-primary"> Reddy</span>
+              VarunTej<span className="text-primary"> Reddy N</span>
             </span>
           </a>
 
