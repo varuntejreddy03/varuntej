@@ -21,6 +21,8 @@ export type ShippedSite = {
   summary: string;
   location?: string;
   url?: string;
+  // Optional local screenshot in /public (e.g. '/shots/navvam.jpg'); used instead of the live capture.
+  image?: string;
 };
 
 export const shippedSites: ShippedSite[] = [

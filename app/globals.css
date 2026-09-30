@@ -85,7 +85,7 @@ a {
 
 /* Client-name ticker under the hero */
 .marquee-track {
-  animation: marquee 60s linear infinite;
+  animation: marquee 160s linear infinite;
 }
 
 .marquee:hover .marquee-track {
