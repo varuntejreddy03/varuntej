@@ -16,6 +16,7 @@ export default function ResumeContent() {
 
   return (
     <div className="min-h-screen bg-[#0d0f14] px-4 py-10 sm:px-8">
+      <div aria-hidden="true" className="fixed inset-0 -z-10 bg-[#0d0f14]" />
       <div className="mx-auto mb-10 flex max-w-6xl items-center justify-between gap-4">
         <a
           href="/"
@@ -149,7 +150,7 @@ export default function ResumeContent() {
       </div>
 
       <div className="mx-auto mt-10 max-w-6xl">
-        <Footer />
+        <Footer tone="dark" />
       </div>
     </div>
   );

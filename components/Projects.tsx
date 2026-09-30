@@ -1,126 +1,98 @@
 'use client';
 
-// Projects — Jobs24x job-listing-style 3-column card grid.
-import Image from 'next/image';
+// Selected work: editorial case-study rows — index, story, stack on the left; key metrics on the right.
+import Icon from '@/components/Icon';
 import { projectItems } from '@/lib/content';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function Projects() {
   const { ref, isVisible } = useScrollAnimation();
 
-  const categoryStyle: Record<string, { text: string; color: string }> = {
-    ai: { text: 'AI', color: 'bg-[#F3E8FF] text-[#7C3AED] border-[#E9D5FF]' },
-    'client-work': { text: 'Client Work', color: 'bg-[#ECFDF5] text-[#059669] border-[#D1FAE5]' },
-    'web-app': { text: 'Featured', color: 'bg-[#EEF2FF] text-primary border-[#E0E7FF]' },
-  };
-
   return (
-    <section id="projects" className="border-t border-[#F3F4F6] bg-[#FAFBFC] py-20 lg:py-24">
-      <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
-        <div className="mb-10 max-w-2xl">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.1em] text-primary">Selected Works</p>
-          <h2 className="font-heading text-[28px] font-bold leading-[1.2] tracking-tight text-[#111827] sm:text-[36px]">
-            Shipped systems, not placeholder cards.
-          </h2>
-          <p className="mt-3 text-sm leading-[1.7] text-[muted-foreground]">
-            MedRAG, KMCE Cricket Portal, and the StaffArc client delivery pipeline anchor the current portfolio.
+    <section id="work" className="py-24 lg:py-32">
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-8">
+        <div className="mb-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="mb-4 text-[13px] font-medium uppercase tracking-[0.14em] text-primary">Selected work</p>
+            <h2 className="max-w-[640px] font-heading text-[36px] font-semibold leading-[1.05] tracking-[-0.035em] sm:text-[52px]">
+              Systems with real users, <span className="font-serif font-normal italic">not demos.</span>
+            </h2>
+          </div>
+          <p className="max-w-[340px] text-[15px] leading-[1.65] text-muted-foreground">
+            AI, full stack and business software. The marketing sites come after, and there are a lot of them.
           </p>
         </div>
 
-        <div ref={ref} className={isVisible ? 'section-fade is-visible' : 'section-fade'}>
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {projectItems.map((project) => {
-              const badge = categoryStyle[project.category] ?? categoryStyle['web-app'];
-              return (
-                <article
-                  key={project.id}
-                  className="group flex flex-col overflow-hidden rounded-xl border border-[#E5E7EB] bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-card-hover"
-                >
-                  {/* Image */}
-                  <div className="relative h-[180px] overflow-hidden">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 380px"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className={`absolute left-3 top-3 rounded-md border px-2.5 py-1 text-[11px] font-semibold ${badge.color}`}>
-                      {badge.text}
-                    </div>
+        <div ref={ref} className={`section-fade ${isVisible ? 'is-visible' : ''}`}>
+          <div className="border-t border-ink">
+            {projectItems.map((project, index) => (
+              <article
+                key={project.id}
+                className="group grid gap-8 border-b border-line py-10 lg:grid-cols-[80px_1fr_380px] lg:gap-10 lg:py-14"
+              >
+                <p className="font-heading text-[15px] font-medium text-muted-foreground">
+                  {String(index + 1).padStart(2, '0')}
+                </p>
+
+                <div>
+                  <p className="text-[13px] font-medium text-primary">{project.kind}</p>
+                  <h3 className="mt-2 font-heading text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] sm:text-[38px]">
+                    {project.title}
+                  </h3>
+                  <p className="mt-2 font-serif text-[22px] italic leading-snug text-ink-soft">{project.tagline}</p>
+                  <p className="mt-5 max-w-[560px] text-[15px] leading-[1.7] text-muted-foreground">
+                    {project.description}
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-1.5">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-line bg-surface px-3 py-1 text-[12px] font-medium text-ink-soft"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
 
-                  {/* Content */}
-                  <div className="flex flex-1 flex-col p-5">
-                    <h3 className="font-heading text-[17px] font-bold text-[#111827]">{project.title}</h3>
-                    <p className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
-                      {project.tagline}
-                    </p>
-                    <p className="mt-3 line-clamp-2 text-sm leading-[1.6] text-[muted-foreground]">{project.description}</p>
-
-                    {/* Features */}
-                    <div className="mt-3 space-y-1.5">
-                      {project.features.slice(0, 2).map((feature) => (
-                        <div key={feature} className="flex items-start gap-1.5 text-xs " style={{ color: '#64748B' }}>
-                          <span className="material-symbols-outlined mt-0.5 text-sm text-primary">check_circle</span>
-                          <span className="line-clamp-1">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Tech tags */}
-                    <div className="mt-4 flex flex-wrap gap-1">
-                      {project.tags.slice(0, 4).map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-md border border-[#F3F4F6] bg-[#FAFBFC] px-2 py-0.5 text-[11px] font-medium text-[muted-foreground]"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                      {project.tags.length > 4 ? (
-                        <span className="rounded-md border border-[#F3F4F6] bg-[#FAFBFC] px-2 py-0.5 text-[11px] font-medium text-[#D1D5DB]">
-                          +{project.tags.length - 4}
-                        </span>
-                      ) : null}
-                    </div>
-
-                    <div className="flex-1" />
-
-                    {/* Actions */}
-                    <div className="mt-4 flex gap-2 border-t border-[#F3F4F6] pt-4">
-                      {project.liveUrl ? (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-primary py-2.5 text-xs font-semibold text-white transition-all hover:bg-[#1D4ED8]"
-                        >
-                          <span className="material-symbols-outlined text-sm">open_in_new</span>
-                          Live Demo
-                        </a>
-                      ) : null}
-                      {project.repoUrl ? (
-                        <a
-                          href={project.repoUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-[#E5E7EB] py-2.5 text-xs font-semibold  transition-all hover:border-primary hover:text-primary" style={{ color: '#64748B' }}
-                        >
-                          <span className="material-symbols-outlined text-sm">code</span>
-                          Source Code
-                        </a>
-                      ) : null}
-                      {!project.liveUrl && !project.repoUrl ? (
-                        <span className="flex flex-1 items-center justify-center rounded-lg bg-[#FAFBFC] py-2.5 text-xs font-medium text-[#D1D5DB]">
-                          Private Project
-                        </span>
-                      ) : null}
-                    </div>
+                  <div className="mt-7 flex flex-wrap gap-5 text-sm font-medium">
+                    {project.liveUrl ? (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 text-ink underline decoration-line decoration-2 underline-offset-[6px] transition-colors hover:text-primary hover:decoration-primary"
+                      >
+                        Visit live site
+                        <Icon name="arrow-up-right" className="h-4 w-4" />
+                      </a>
+                    ) : null}
+                    {project.repoUrl ? (
+                      <a
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 text-muted-foreground underline decoration-line decoration-2 underline-offset-[6px] transition-colors hover:text-ink hover:decoration-ink"
+                      >
+                        Source code
+                        <Icon name="arrow-up-right" className="h-4 w-4" />
+                      </a>
+                    ) : null}
                   </div>
-                </article>
-              );
-            })}
+                </div>
+
+                <dl className="grid grid-cols-3 gap-px self-start overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-1">
+                  {project.metrics.map((metric) => (
+                    <div key={metric.label} className="flex flex-col-reverse bg-surface p-4 sm:p-5">
+                      <dt className="mt-1 text-[12px] text-muted-foreground">{metric.label}</dt>
+                      <dd className="font-heading text-[20px] font-semibold tracking-[-0.02em] text-ink sm:text-[26px]">
+                        {metric.value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </article>
+            ))}
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-// Tailwind config — Jobs24x-exact design system.
+// Tailwind config — paper/ink portfolio design system.
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -12,21 +12,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#2563EB',
-        'primary-hover': '#1D4ED8',
-        heading: '#111827',
-        body: '#6B7280',
-        surface: '#FFFFFF',
-        base: '#F7F8FA',
-        'border-light': '#E5E7EB',
+        primary: '#2F4BFF',
+        'primary-hover': '#1E36E0',
+        paper: '#F6F5F1',
+        ink: '#111110',
+        'ink-soft': '#3B3A37',
         muted: {
-          DEFAULT: '#F1F5F9',
-          foreground: '#64748B',
+          DEFAULT: '#F1EFEA',
+          foreground: '#6E6B64',
+        },
+        line: '#E4E1D9',
+        night: '#0F0F0E',
+        surface: '#FFFFFF',
+        accent: {
+          DEFAULT: '#2F4BFF',
+          soft: '#E9ECFF',
         },
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
         heading: ['var(--font-space)', 'Space Grotesk', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-serif-display)', 'Georgia', 'serif'],
       },
       boxShadow: {
         card: '0 1px 3px rgba(0,0,0,0.05)',
