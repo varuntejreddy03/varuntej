@@ -9,10 +9,10 @@ export default function Logo() {
       <Image
         src="/criclelogo.png"
         alt="Varun Tej Reddy N logo"
-        width={32}
-        height={32}
+        width={40}
+        height={40}
         priority
-        className="relative z-10 rounded-full bg-white object-contain shadow-sm transition-transform duration-500 group-hover:scale-105"
+        className="relative z-10 h-[34px] w-[34px] rounded-full border border-line bg-white object-contain lg:h-10 lg:w-10"
       />
     </div>
   );

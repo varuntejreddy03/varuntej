@@ -30,11 +30,11 @@ export const owner = {
 export const sitesShipped = shippedSites.length;
 
 export const navLinks = [
-  { name: 'Work', href: '#work' },
-  { name: 'Shipped', href: '#shipped' },
+  { name: 'Services', href: '#services' },
+  { name: 'Case studies', href: '#work' },
+  { name: 'Portfolio', href: '#shipped' },
+  { name: 'Process', href: '#process' },
   { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Contact', href: '#contact' },
 ] as const;
 
 export const projectItems: ProjectItem[] = [

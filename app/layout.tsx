@@ -1,14 +1,14 @@
-// Root layout — Space Grotesk headings, Inter body, Instrument Serif accents.
+// Root layout — Bricolage Grotesque headings, Figtree body, Instrument Serif accents.
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
-import { Space_Grotesk, Inter, Instrument_Serif } from 'next/font/google';
+import { Bricolage_Grotesque, Figtree, Instrument_Serif } from 'next/font/google';
 import './globals.css';
 
-const spaceGrotesk = Space_Grotesk({
+const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
-  variable: '--font-space',
+  variable: '--font-display',
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700'],
 });
 
 const instrumentSerif = Instrument_Serif({
@@ -19,30 +19,31 @@ const instrumentSerif = Instrument_Serif({
   style: ['normal', 'italic'],
 });
 
-const inter = Inter({
+const figtree = Figtree({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-body',
   display: 'swap',
+  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://varuntej.online'),
-  title: 'Varun Tej Reddy N - Full Stack Dev & AI Engineer | Hyderabad',
+  title: 'Varun Tej — Websites & Custom Software for Businesses | Hyderabad',
   description:
-    'Full Stack Developer and AI Engineer in Hyderabad. 58 production websites shipped for businesses in India, the UK, the US and Australia, plus RAG pipelines and full stack apps.',
+    'Business websites and custom software by Varun Tej, a full stack developer in Hyderabad. 58 websites launched for businesses in India, the UK, the US and Australia, plus ordering platforms and POS software.',
   alternates: {
     canonical: 'https://varuntej.online',
   },
   openGraph: {
-    title: 'Varun Tej - Full Stack Dev & AI Engineer',
-    description: '58 websites shipped for real businesses, plus AI systems and full stack apps.',
+    title: 'Varun Tej — Websites & Custom Software',
+    description: '58 business websites launched, plus ordering platforms, POS software and AI systems.',
     url: 'https://varuntej.online',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Varun Tej - Full Stack Dev & AI Engineer',
-    description: '58 websites shipped for real businesses, plus AI systems and full stack apps.',
+    title: 'Varun Tej — Websites & Custom Software',
+    description: '58 business websites launched, plus ordering platforms, POS software and AI systems.',
   },
 };
 
@@ -54,17 +55,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${instrumentSerif.variable}`}
+      className={`${bricolage.variable} ${figtree.variable} ${instrumentSerif.variable}`}
       suppressHydrationWarning
     >
       <head>
         <link rel="canonical" href="https://varuntej.online" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        />
       </head>
       <body className="bg-paper font-sans text-ink-soft antialiased">
         {children}

@@ -1,6 +1,6 @@
 'use client';
 
-// Minimal sticky navbar: name left, links center, availability + CTA right. Blurs on scroll.
+// Sticky navbar: avatar + name left, section links center, "Start a project" right. Blurs on scroll.
 import { memo, useEffect, useState } from 'react';
 import Icon from '@/components/Icon';
 import Logo from '@/components/Logo';
@@ -23,25 +23,20 @@ function Header() {
   return (
     <>
       <header
-        className={`fixed left-0 right-0 top-0 z-[100] transition-all duration-300 ${
-          scrolled ? 'border-b border-line bg-paper/80 backdrop-blur-md' : 'border-b border-transparent bg-transparent'
+        className={`fixed left-0 right-0 top-0 z-[100] border-b transition-colors duration-300 ${
+          scrolled ? 'border-line bg-paper/85 backdrop-blur-md' : 'border-line bg-paper'
         }`}
       >
-        <nav className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-4 sm:px-8">
-          <a href="#home" className="flex items-center gap-2.5" aria-label="Back to top">
+        <nav className="mx-auto flex h-[68px] max-w-[1200px] items-center justify-between px-5 sm:px-8 lg:h-[88px]">
+          <a href="#home" className="flex items-center gap-3" aria-label="Back to top">
             <Logo />
-            <span className="font-heading text-[16px] font-semibold tracking-tight text-ink">
-              Varun Tej
-            </span>
+            <span className="font-heading text-[18px] font-semibold tracking-[-0.02em] text-ink lg:text-[19px]">Varun Tej</span>
+            <span className="hidden text-sm text-muted-foreground xl:inline">Websites &amp; software</span>
           </a>
 
-          <div className="hidden items-center gap-1 lg:flex">
+          <div className="hidden items-center gap-9 text-[15px] font-medium lg:flex">
             {navLinks.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-ink/5 hover:text-ink"
-              >
+              <a key={item.name} href={item.href} className="text-ink-soft transition-colors hover:text-primary">
                 {item.name}
               </a>
             ))}
@@ -49,22 +44,16 @@ function Header() {
 
           <div className="flex items-center gap-2">
             <a
-              href="/resume"
-              className="hidden rounded-full px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-ink/5 sm:inline-flex"
-            >
-              Resume
-            </a>
-            <a
               href="#contact"
-              className="hidden items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-primary sm:inline-flex"
+              className="hidden h-[46px] items-center gap-2 rounded-full bg-ink px-[22px] text-[15px] font-semibold text-white transition-colors hover:bg-primary sm:inline-flex"
             >
-              Let&apos;s talk
+              Start a project
+              <Icon name="arrow-right" className="h-4 w-4" />
             </a>
-
             <button
               onClick={() => setMobileMenuOpen((current) => !current)}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface text-ink transition-colors hover:bg-muted lg:hidden"
-              aria-label="Toggle menu"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface text-ink lg:hidden"
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileMenuOpen}
             >
               <Icon name={mobileMenuOpen ? 'close' : 'menu'} className="h-5 w-5" />
@@ -83,33 +72,24 @@ function Header() {
                 key={item.name}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center rounded-xl px-4 py-3 text-[15px] font-medium text-ink transition-colors hover:bg-muted"
+                className="flex items-center rounded-xl px-4 py-3 text-[15px] font-medium text-ink hover:bg-muted"
               >
                 {item.name}
               </a>
             ))}
-            <div className="mt-1 grid grid-cols-2 gap-2 p-1">
-              <a
-                href="/resume"
-                className="flex items-center justify-center rounded-full border border-line py-3 text-sm font-medium text-ink"
-              >
-                Resume
-              </a>
-              <a
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center rounded-full bg-ink py-3 text-sm font-medium text-paper"
-              >
-                Let&apos;s talk
-              </a>
-            </div>
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="m-1 mt-2 flex h-12 items-center justify-center gap-2 rounded-full bg-primary text-[15px] font-semibold text-white"
+            >
+              Start a project
+              <Icon name="arrow-right" className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </header>
 
-      {mobileMenuOpen ? (
-        <div className="fixed inset-0 z-[90] bg-ink/10 lg:hidden" onClick={() => setMobileMenuOpen(false)} />
-      ) : null}
+      {mobileMenuOpen ? <div className="fixed inset-0 z-[90] bg-ink/10 lg:hidden" onClick={() => setMobileMenuOpen(false)} /> : null}
     </>
   );
 }

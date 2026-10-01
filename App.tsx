@@ -1,12 +1,13 @@
 'use client';
 
-// Portfolio shell: hero → selected work → every shipped site → about → skills → testimonials → contact.
+// Portfolio shell: hero → services → case studies → portfolio → process → about → testimonials → contact.
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import Services from '@/components/Services';
 import Projects from '@/components/Projects';
 import Shipped from '@/components/Shipped';
+import Process from '@/components/Process';
 import About from '@/components/About';
-import Skills from '@/components/Skills';
 import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -19,10 +20,11 @@ export default function App() {
 
       <main className="relative z-10">
         <Hero />
+        <Services />
         <Projects />
         <Shipped />
+        <Process />
         <About />
-        <Skills />
         <Testimonials />
         <Contact />
       </main>
