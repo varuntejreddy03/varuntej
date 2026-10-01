@@ -1,82 +1,45 @@
 'use client';
 
-// Contact — Jobs24x CTA style.
+// Contact: accent-coloured block — invitation and direct channels on the left, enquiry form on the right.
 import ContactForm from '@/components/ContactForm';
 import { owner } from '@/lib/content';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function Contact() {
-  const { ref, isVisible } = useScrollAnimation();
-
-  const socialLinks = [
-    { name: 'GitHub', icon: 'code', url: owner.github },
-    { name: 'LinkedIn', icon: 'public', url: owner.linkedin },
-    { name: 'Email', icon: 'mail', url: `mailto:${owner.email}` },
+  const channels = [
+    { label: 'Email', value: owner.email, href: `mailto:${owner.email}` },
+    { label: 'Phone / WhatsApp', value: '+91 83749 67870', href: `tel:${owner.phone.replace(/-/g, '')}` },
+    { label: 'LinkedIn', value: 'in/nvaruntej', href: owner.linkedin },
   ];
 
   return (
-    <section id="contact" className="py-20 lg:py-24">
-      <div
-        ref={ref}
-        className={`grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-14 ${isVisible ? 'section-fade is-visible' : 'section-fade'}`}
-      >
+    <section id="contact" className="p-4 lg:px-[60px] lg:py-10">
+      <div className="mx-auto grid max-w-[1320px] gap-6 rounded-[28px] bg-primary px-5 pb-5 pt-9 text-white sm:p-10 lg:grid-cols-[minmax(0,1fr)_540px] lg:items-start lg:gap-16 lg:rounded-[36px] lg:px-[60px] lg:py-20">
         <div>
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.1em] text-primary">Get In Touch</p>
-          <h2 className="font-heading text-[28px] font-bold leading-[1.2] tracking-tight text-[#111827] sm:text-[36px]">
-            Build something that ships clean.
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/85 lg:text-[13px]">Let&apos;s work together</p>
+          <h2 className="mt-3 font-heading text-[36px] font-semibold leading-[1.05] tracking-[-0.04em] text-white lg:mt-4 lg:text-[64px] lg:leading-[1.02]">
+            Have a business that needs a{' '}
+            <span className="font-serif font-normal italic tracking-[-0.01em]">website or software?</span>
           </h2>
-          <p className="mt-4 text-sm leading-[1.7] " style={{ color: '#64748B' }}>
-            Available for websites, AI systems, full stack apps, and selective collaboration with teams that care about production quality.
+          <p className="mt-3.5 max-w-[460px] text-base leading-[1.6] text-white/90 lg:mt-6 lg:text-lg">
+            Tell me about it. I reply within a day with next steps and a quote.
           </p>
-
-          <div className="mt-6 space-y-2.5">
-            <p className="flex items-center gap-2.5 text-sm text-[#374151]">
-              <span className="material-symbols-outlined text-[18px] text-primary">location_on</span>
-              {owner.location}
-            </p>
-            <p className="flex items-center gap-2.5 text-sm text-[#374151]">
-              <span className="material-symbols-outlined text-[18px] text-primary">mail</span>
-              <a href={`mailto:${owner.email}`} className="transition-colors hover:text-primary">
-                {owner.email}
-              </a>
-            </p>
-            <p className="flex items-center gap-2.5 text-sm text-[#374151]">
-              <span className="material-symbols-outlined text-[18px] text-primary">call</span>
-              <a href={`tel:${owner.phone}`} className="transition-colors hover:text-primary">
-                {owner.phone}
-              </a>
-            </p>
-          </div>
-
-          <div className="mt-6 flex gap-2">
-            {socialLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.url}
-                target={link.url.startsWith('http') ? '_blank' : undefined}
-                rel={link.url.startsWith('http') ? 'noreferrer' : undefined}
-                className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#E5E7EB]  transition-all hover:border-primary hover:bg-primary hover:text-white" style={{ color: '#64748B' }}
-                title={link.name}
-              >
-                <span className="material-symbols-outlined text-[18px]">{link.icon}</span>
-              </a>
-            ))}
-          </div>
-
-          <div className="mt-8 rounded-xl border border-[#E5E7EB] bg-white p-4">
-            <p className="text-[11px] font-medium uppercase tracking-wider text-[muted-foreground]">Response Pattern</p>
-            <div className="mt-2 flex items-center gap-2.5">
-              <div className="flex gap-0.5">
-                {[0, 1, 2, 3, 4].map((bar) => (
-                  <span
-                    key={bar}
-                    className={`h-4 w-1 rounded-full ${bar < 4 ? 'bg-primary' : 'bg-[#E5E7EB]'}`}
-                  />
-                ))}
+          <dl className="mt-6 border-t border-white/25 lg:mt-10">
+            {channels.map((channel) => (
+              <div key={channel.label} className="border-b border-white/25 py-3 sm:grid sm:grid-cols-[150px_minmax(0,1fr)] sm:gap-4 sm:py-4">
+                <dt className="text-[13px] text-white/80 sm:text-base">{channel.label}</dt>
+                <dd className="mt-1 sm:mt-0">
+                  <a
+                    href={channel.href}
+                    target={channel.href.startsWith('http') ? '_blank' : undefined}
+                    rel={channel.href.startsWith('http') ? 'noreferrer' : undefined}
+                    className="break-all text-base font-semibold text-white underline-offset-4 hover:underline"
+                  >
+                    {channel.value}
+                  </a>
+                </dd>
               </div>
-              <span className="text-sm font-semibold text-[#374151]">Usually within 24h</span>
-            </div>
-          </div>
+            ))}
+          </dl>
         </div>
 
         <ContactForm />

@@ -50,3 +50,4 @@ temp/
 
 # Local runtime store fallbacks
 .data/
+*.tsbuildinfo

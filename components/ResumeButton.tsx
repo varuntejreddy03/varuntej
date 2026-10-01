@@ -3,6 +3,7 @@
 // ResumeButton — clean light theme resume action button.
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Icon from '@/components/Icon';
 
 type ResumeButtonProps = {
   label: string;
@@ -93,7 +94,7 @@ export default function ResumeButton({
         className={buttonClassName}
       >
         <span>{label}</span>
-        <span className="material-symbols-outlined ase" style={{ color: '#64748B' }}>{icon}</span>
+        <Icon name={icon === 'download' ? 'download' : 'arrow-up-right'} className="h-4 w-4" />
       </button>
       {showCount ? (
         <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium " style={{ color: '#64748B' }}>

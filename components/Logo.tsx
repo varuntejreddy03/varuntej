@@ -1,6 +1,6 @@
 'use client';
 
-// Logo with clean styling for light theme.
+// Round logo mark used in the navbar.
 import Image from 'next/image';
 
 export default function Logo() {
@@ -12,7 +12,7 @@ export default function Logo() {
         width={40}
         height={40}
         priority
-        className="relative z-10 rounded-full bg-white object-contain shadow-sm transition-transform duration-500 group-hover:scale-105"
+        className="relative z-10 h-[34px] w-[34px] rounded-full border border-line bg-white object-contain lg:h-10 lg:w-10"
       />
     </div>
   );

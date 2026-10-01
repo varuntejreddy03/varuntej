@@ -1,15 +1,13 @@
 // Central portfolio content keeps all owner data, sections, and UI metadata in one source of truth.
+import { shippedSites } from '@/lib/shipped';
+
 export type ProjectItem = {
   id: string;
   title: string;
+  kind: string;
   tagline: string;
   description: string;
-  challenge: string;
-  solution: string;
-  results: string;
-  image: string;
-  category: 'ai' | 'client-work' | 'web-app';
-  features: string[];
+  metrics: { value: string; label: string }[];
   tags: string[];
   liveUrl?: string;
   repoUrl?: string;
@@ -29,101 +27,77 @@ export const owner = {
   githubUsername: 'varuntejreddy03',
 } as const;
 
+export const sitesShipped = shippedSites.length;
+
 export const navLinks = [
+  { name: 'Services', href: '#services' },
+  { name: 'Case studies', href: '#work' },
+  { name: 'Portfolio', href: '#shipped' },
+  { name: 'Process', href: '#process' },
   { name: 'About', href: '#about' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Shipped', href: '#clients' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Contact', href: '#contact' },
-] as const;
-
-export const heroCycleWords = ['Advanced', 'Scalable', 'AI-Powered', 'Production-Grade'] as const;
-
-export const heroStats = [
-  { label: 'Client Projects', value: '18+' },
-  { label: 'Technologies', value: '10+' },
-  { label: 'Response Window', value: '<24h' },
-] as const;
-
-export const aboutStats = [
-  { label: 'Production Sites', value: '18+' },
-  { label: 'Named Clients', value: '19' },
-  { label: 'Critical Bugs', value: '0' },
-] as const;
-
-export const facts = [
-  { label: 'Current Base', value: owner.location, icon: 'location_on' },
-  { label: 'Academic Path', value: `${owner.education} - ${owner.educationMeta}`, icon: 'school' },
-  { label: 'Primary Focus', value: 'Scalable web apps and AI systems', icon: 'terminal' },
-  { label: 'Open For', value: 'Graduate roles 2027 + product internships', icon: 'rocket_launch' },
 ] as const;
 
 export const projectItems: ProjectItem[] = [
   {
     id: 'medrag',
     title: 'MedRAG',
-    tagline: 'RAG infrastructure for fast, grounded medical answers.',
+    kind: 'AI System',
+    tagline: 'Grounded medical answers in 2–3 seconds.',
     description:
-      'Built a medical RAG pipeline with a 4.4GB FAISS index, 2-3 second response time, FastAPI APIs, JWT auth, RBAC, Docker, and AWS EC2/S3 deployment.',
-    challenge:
-      'Medical retrieval workflows needed grounded answers from large domain documents without the latency and hallucination risk of generic prompting.',
-    solution:
-      'Designed a production-friendly FastAPI backend around a large FAISS index, protected it with JWT + RBAC, and packaged the full stack in Docker for AWS deployment.',
-    results:
-      'Delivered 2-3 second grounded responses on a 4.4GB FAISS corpus and established a clean base for the next MedRAG agentic upgrade.',
-    image: '/medrag-cover.svg',
-    category: 'ai',
-    features: [
-      '4.4GB FAISS vector index for domain-grounded retrieval',
-      'JWT + RBAC-secured FastAPI services for clinical workflows',
-      'Dockerized AWS EC2/S3 deployment tuned for fast response',
+      'A medical retrieval-augmented generation backend over a 4.4GB FAISS index. FastAPI services secured with JWT + RBAC, packaged in Docker and deployed on AWS EC2/S3.',
+    metrics: [
+      { value: '4.4GB', label: 'FAISS index' },
+      { value: '2–3s', label: 'Response time' },
+      { value: 'JWT+RBAC', label: 'Access control' },
     ],
-    tags: ['FastAPI', 'Python', 'FAISS', 'RAG', 'JWT', 'Docker', 'AWS'],
+    tags: ['FastAPI', 'Python', 'FAISS', 'RAG', 'Gemini', 'Docker', 'AWS'],
     liveUrl: 'https://medrag.site',
     repoUrl: 'https://github.com/varuntejreddy03/medrag_backend',
   },
   {
-    id: 'staffarc-suite',
-    title: 'Client Delivery Suite',
-    tagline: '18+ real projects delivered across multiple business categories.',
+    id: 'palavu-centre',
+    title: 'Palavu Centre Ordering',
+    kind: 'Full Stack Platform',
+    tagline: 'Restaurant ordering, payments and a live admin.',
     description:
-      'Delivered production-ready websites and frontend systems for restaurants, interiors, agencies, wellness brands, forensic services, and SaaS-style business sites.',
-    challenge:
-      'Each project required a different brand language, conversion path, and technical setup while still needing fast delivery, clean implementation, and strong responsiveness.',
-    solution:
-      'Built reusable frontend patterns with React and Next.js, delivered in agile cycles, and tuned each launch for cross-device reliability and polished execution.',
-    results:
-      'Shipped 18+ real client projects with zero critical post-launch defects and a growing repeat-client pipeline.',
-    image: '/client-delivery-cover.svg',
-    category: 'client-work',
-    features: [
-      '18+ client projects delivered across multiple industries',
-      'Production-grade UI systems tuned for launch readiness',
-      'Repeat business driven by fast delivery and clean execution',
+      'Customer storefront, admin dashboard and an Express 5 API for a Godavari cuisine restaurant. Neon Postgres via Prisma, Razorpay payment verification, Socket.IO live order updates, JWT cookie auth with CSRF protection and rate limiting.',
+    metrics: [
+      { value: '3', label: 'Apps: store, admin, API' },
+      { value: 'Live', label: 'Socket.IO orders' },
+      { value: 'Razorpay', label: 'Payments' },
     ],
-    tags: ['React.js', 'Next.js', 'Tailwind CSS', 'SEO', 'Agile'],
+    tags: ['React', 'Express', 'Prisma', 'Postgres', 'Socket.IO', 'Razorpay'],
+    liveUrl: 'https://rjmpalavucentre.com',
+    repoUrl: 'https://github.com/rajamahendravarampalavu/palavucentre-backend',
+  },
+  {
+    id: 'optifirst-pos',
+    title: 'OptiFirst POS',
+    kind: 'Business Software',
+    tagline: 'Paper sales sheets, replaced.',
+    description:
+      'A mobile-first daily sales and stock reporting app. Staff submit reports from their phones; admins get dashboards, charts and one-click PDF / Excel exports, with Google Sheets as the database via an Apps Script API.',
+    metrics: [
+      { value: 'PWA', label: 'Mobile-first' },
+      { value: 'PDF+XLSX', label: 'Exports' },
+      { value: 'Sheets', label: 'Zero-cost backend' },
+    ],
+    tags: ['React', 'TypeScript', 'Apps Script', 'Recharts', 'jsPDF'],
+    repoUrl: 'https://github.com/betterbirdtz/OptiFirst-POS',
   },
   {
     id: 'kmce-cricket',
     title: 'KMCE Cricket Portal',
-    tagline: 'Real-time sports operations for 10 teams and 500+ players.',
+    kind: 'Realtime Web App',
+    tagline: 'Live tournament operations for a whole campus.',
     description:
-      'Built a real-time cricket operations portal with React, Supabase, SQL, and RBAC to manage tournaments, scores, teams, and player workflows for KMCE.',
-    challenge:
-      'Manual tournament coordination created fragmented player data, delayed score updates, and limited visibility across the competition lifecycle.',
-    solution:
-      'Implemented a Supabase-backed portal with role-based controls, real-time data sync, and structured SQL entities for teams, schedules, and results.',
-    results:
-      'Streamlined tournament operations across 10 teams and 500+ players with live synchronization and role-aware administration.',
-    image: '/kmce-cricket-cover.svg',
-    category: 'web-app',
-    features: [
-      'Real-time Supabase sync for scores and match state',
-      'RBAC workflows for admins, organizers, and team roles',
-      'SQL-backed player and tournament management at campus scale',
+      'Real-time cricket operations portal for KMCE: tournaments, fixtures, live scores and player management, with role-based access for admins, organizers and teams.',
+    metrics: [
+      { value: '500+', label: 'Players' },
+      { value: '10', label: 'Teams' },
+      { value: 'Realtime', label: 'Supabase sync' },
     ],
-    tags: ['React.js', 'Supabase', 'SQL', 'RBAC', 'Realtime'],
+    tags: ['React', 'Supabase', 'SQL', 'RBAC', 'Realtime'],
     liveUrl: 'https://kmcecricket.varuntej.online/',
     repoUrl: 'https://github.com/varuntejreddy03/kmcesports',
   },
@@ -137,9 +111,9 @@ export const experienceTimeline = [
     period: 'February 2026 - Present',
     type: 'engineering',
     bullets: [
-      'Delivered production-ready client sites across multiple industries in agile sprint cycles.',
-      'Worked directly on launches for Flow Reach, Sandeep Associates, Bear Harbor, Vintage Times, Parall Forensics, Brent Street Pizza, Naati Dosa, Joyous Food Factory, Aikya Spaces, Infinite Metric Limited, RajaMahendravaram Palavu Centre, Almacura, The Market Titans, MonkFit, 999tatva Media, Love You Chai, SABP Technologies LLP, Cineo Hub, and Sathya Interiors.',
-      'Maintained 100% cross-device and cross-browser compatibility across shipped frontend work.',
+      'Design, build and launch client websites in agile sprint cycles, from brief to production deploy.',
+      'Shipped sites for restaurants, interiors studios, logistics firms, agencies, clinics and SaaS brands in India, the UK, the US and Australia.',
+      'Own cross-device QA, SEO basics and performance tuning on every launch.',
     ],
     tags: ['React.js', 'Next.js', 'Client Delivery'],
   },
@@ -150,9 +124,8 @@ export const experienceTimeline = [
     period: '2025 - Present',
     type: 'client',
     bullets: [
-      'Delivered 4 end-to-end projects from brief through cloud deployment.',
-      'Handled design, build, testing, and launch ownership across the full delivery cycle.',
-      'Maintained 0 critical post-launch defects with 100% on-time delivery.',
+      'End-to-end builds for small businesses: design, development, hosting, domains and handover.',
+      'Full stack products beyond marketing sites, including ordering platforms and the OptiFirst POS reporting app.',
     ],
     tags: ['Full Stack', 'Cloud Deploy', 'Ownership'],
   },
@@ -164,7 +137,7 @@ export const experienceTimeline = [
     type: 'academic',
     bullets: [
       'Building industry-ready full stack and AI systems alongside the core CS curriculum.',
-      'Using campus projects such as the KMCE Cricket Portal to turn coursework into production-style systems.',
+      'Turned campus needs into production systems such as the KMCE Cricket Portal.',
     ],
     tags: ['Systems', 'Applied CS'],
   },
@@ -220,7 +193,7 @@ export const skillCategories = [
 ] as const;
 
 export const skillTooltips: Record<string, string> = {
-  'React.js': 'Used in 18+ production projects and the KMCE Cricket Portal.',
+  'React.js': 'Used across 58 shipped client websites and the KMCE Cricket Portal.',
   'Next.js': 'Used in client delivery work and portfolio-grade product builds.',
   TypeScript: 'Used in production UI systems and portfolio engineering work.',
   'JavaScript ES6+': 'Core language across every shipped frontend project.',
@@ -256,106 +229,6 @@ export const skillTooltips: Record<string, string> = {
   'System Design': 'Improving architecture decisions for larger systems.',
   DSA: 'Ongoing fundamentals work for interviews and problem solving.',
 };
-
-export const learningTopics = [
-  {
-    topic: 'LangChain',
-    icon: 'device_hub',
-    status: 'Active',
-    desc: 'Exploring orchestration patterns for multi-step agent workflows and retrieval chains.',
-  },
-  {
-    topic: 'OpenAI API',
-    icon: 'smart_toy',
-    status: 'Active',
-    desc: 'Building deeper familiarity with production API patterns, tools, and prompt design.',
-  },
-  {
-    topic: 'Pinecone',
-    icon: 'database',
-    status: 'Research',
-    desc: 'Comparing managed vector infrastructure tradeoffs against FAISS-based local indexing.',
-  },
-  {
-    topic: 'Weaviate',
-    icon: 'scatter_plot',
-    status: 'Research',
-    desc: 'Studying schema design and retrieval ergonomics for future AI system upgrades.',
-  },
-  {
-    topic: 'System Design',
-    icon: 'account_tree',
-    status: 'Deep Dive',
-    desc: 'Strengthening architecture thinking around scaling, reliability, and service boundaries.',
-  },
-  {
-    topic: 'DSA',
-    icon: 'data_object',
-    status: 'Ongoing',
-    desc: 'Sharpening problem solving speed and depth for engineering interviews and fundamentals.',
-  },
-] as const;
-
-export const benchmarkCards = [
-  {
-    title: '18+ Sites',
-    category: 'Client Delivery',
-    impact: '18+',
-    label: 'Production Launches',
-    stats: [
-      { name: 'Named Clients', val: '19' },
-      { name: 'Industries', val: '5+' },
-      { name: 'Critical Bugs', val: '0' },
-    ],
-    desc: 'Client work translated into real launches, not mock work.',
-  },
-  {
-    title: 'MedRAG',
-    category: 'AI Systems',
-    impact: '4.4GB',
-    label: 'FAISS Index',
-    stats: [
-      { name: 'Latency', val: '2-3s' },
-      { name: 'Auth', val: 'JWT + RBAC' },
-      { name: 'Deploy', val: 'Docker + AWS' },
-    ],
-    desc: 'A grounded medical RAG backend tuned for fast answers on a large indexed corpus.',
-  },
-  {
-    title: 'KMCE Cricket Portal',
-    category: 'Realtime Platform',
-    impact: '500+',
-    label: 'Players Managed',
-    stats: [
-      { name: 'Teams', val: '10' },
-      { name: 'Backend', val: 'Supabase' },
-      { name: 'Permissions', val: 'RBAC' },
-    ],
-    desc: 'Realtime campus sports operations with role-aware management and live updates.',
-  },
-] as const;
-
-export const clients = [
-  'Bear Harbor',
-  'Vintage Times',
-  'Parall Forensics',
-  'Brent Street Pizza',
-  'Naati Dosa',
-  'Joyous Food Factory',
-  'Aikya Spaces',
-  'Infinite Metric Limited',
-  'RajaMahendravaram Palavu Centre',
-  'Almacura',
-  'The Market Titans',
-  'MonkFit',
-  '999tatva Media',
-  'Flow Reach',
-  'Sandeep Associates',
-  'Sathya Interiors',
-  'Love You Chai',
-  'SABP Technologies LLP',
-  'Cineo Hub',
-] as const;
 
 export const testimonials = [
   {

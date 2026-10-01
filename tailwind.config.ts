@@ -1,4 +1,4 @@
-// Tailwind config — Jobs24x-exact design system.
+// Tailwind config — paper/ink portfolio design system.
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -12,21 +12,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#2563EB',
-        'primary-hover': '#1D4ED8',
-        heading: '#111827',
-        body: '#6B7280',
-        surface: '#FFFFFF',
-        base: '#F7F8FA',
-        'border-light': '#E5E7EB',
+        primary: '#2F4BFF',
+        'primary-hover': '#1E36E0',
+        paper: '#F5F3EE',
+        ink: '#15140F',
+        'ink-soft': '#3A3833',
         muted: {
-          DEFAULT: '#F1F5F9',
-          foreground: '#64748B',
+          DEFAULT: '#F1EFE9',
+          foreground: '#5E5B53',
+        },
+        line: '#E2DED5',
+        night: '#121210',
+        surface: '#FFFFFF',
+        accent: {
+          DEFAULT: '#2F4BFF',
+          soft: '#E9ECFF',
+          light: '#A9B4FF',
         },
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
-        heading: ['var(--font-space)', 'Space Grotesk', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-body)', 'Figtree', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-display)', 'Bricolage Grotesque', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-serif-display)', 'Georgia', 'serif'],
       },
       boxShadow: {
         card: '0 1px 3px rgba(0,0,0,0.05)',

@@ -2,6 +2,7 @@
 
 // ResumeContent keeps the dedicated resume route while updating the content to match the live portfolio data.
 import { useEffect, useState } from 'react';
+import Icon from '@/components/Icon';
 import ResumeButton from '@/components/ResumeButton';
 import Footer from '@/components/Footer';
 import { experienceTimeline, owner, projectItems, skillCategories } from '@/lib/content';
@@ -16,12 +17,13 @@ export default function ResumeContent() {
 
   return (
     <div className="min-h-screen bg-[#0d0f14] px-4 py-10 sm:px-8">
+      <div aria-hidden="true" className="fixed inset-0 -z-10 bg-[#0d0f14]" />
       <div className="mx-auto mb-10 flex max-w-6xl items-center justify-between gap-4">
         <a
           href="/"
           className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-bold text-slate-200"
         >
-          <span className="material-symbols-outlined ase" style={{ color: '#64748B' }}>arrow_back</span>
+          <Icon name="arrow-left" className="h-4 w-4 text-slate-400" />
           Portfolio
         </a>
         <ResumeButton
@@ -149,7 +151,7 @@ export default function ResumeContent() {
       </div>
 
       <div className="mx-auto mt-10 max-w-6xl">
-        <Footer />
+        <Footer tone="dark" />
       </div>
     </div>
   );

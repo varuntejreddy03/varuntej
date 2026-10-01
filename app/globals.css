@@ -1,31 +1,26 @@
-/* Jobs24x-exact design system — globals */
+/* Portfolio design system — warm paper, ink type, one cobalt accent. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import "../hero.css";
-@import "../contact.css";
-@import "../projects.css";
-@import "../skills.css";
-@import "../benchmarks.css";
-@import "../experience.css";
-@import "../learning.css";
-@import "../loading.css";
-
 :root {
-  --primary: #2563EB;
-  --primary-hover: #1D4ED8;
-  --heading: #111827;
-  --body: #6B7280;
-  --surface: #FFFFFF;
-  --base: #F7F8FA;
-  --border: #E5E7EB;
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-space);
+  --paper: #f5f3ee;
+  --surface: #ffffff;
+  --ink: #15140f;
+  --ink-soft: #3a3833;
+  --muted: #5e5b53;
+  --line: #e2ded5;
+  --accent: #2f4bff;
+  --accent-soft: #e9ecff;
+  --night: #121210;
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
+  --font-serif: var(--font-serif-display);
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -33,17 +28,16 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  background: #FFFFFF;
-  color: var(--body);
+  background: var(--paper);
+  color: var(--ink-soft);
   font-size: 15px;
   line-height: 1.6;
 }
 
-/* Jobs24x heading style — Space Grotesk, tight tracking */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading), 'Space Grotesk', system-ui, sans-serif;
-  color: var(--heading);
-  letter-spacing: -0.02em;
+  font-family: var(--font-heading), 'Bricolage Grotesque', system-ui, sans-serif;
+  color: var(--ink);
+  letter-spacing: -0.03em;
 }
 
 a {
@@ -52,34 +46,36 @@ a {
 }
 
 ::selection {
-  background: rgba(37, 99, 235, 0.12);
-  color: #111827;
+  background: var(--accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F7F8FA;
+  background: var(--paper);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D1D5DB;
+  background: #cfcbc1;
   border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
 }
 
 /* Fade-in on scroll */
 .section-fade {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(20px);
   transition:
-    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .section-fade.is-visible {
@@ -87,12 +83,26 @@ a {
   transform: translateY(0);
 }
 
-/* Tooltip */
-.skill-tooltip {
-  pointer-events: none;
+/* Horizontal ticker */
+.marquee-track {
+  animation: marquee 160s linear infinite;
 }
 
-/* Toast */
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Subtle paper grain on dark panels */
+.grain {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
 .terminal-toast-enter {
   animation: toastIn 0.25s ease-out forwards;
 }
@@ -102,7 +112,8 @@ a {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Heatmap */
-.heatmap-shell img {
-  filter: saturate(1.05) contrast(1.08);
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none; }
+  .section-fade { opacity: 1; transform: none; transition: none; }
 }
